@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-17-utility-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run utility-types --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test utility-types --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck utility-types --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit utility-types --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution utility-types --language typescript"
+  }
+}

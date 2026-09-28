@@ -1,0 +1,11 @@
+Learning Ezy Code
+Copyright 2026 Learning Ezy Code contributors
+
+This product includes adapted tutorial material from “interactive-tutorials” by Ron Reiter and contributors:
+https://github.com/ronreiter/interactive-tutorials
+
+Source snapshot: commit 926659bad1120b2c6d8e3c58eb6655aa8257eff3
+Upstream TypeScript source: tutorials/learn-ts.org/en/
+Upstream license: Apache License 2.0
+
+The original edition adapted tutorial prose, prompts, starter code, expected output, and published solutions from that source. The current canonical textbook is newly written local prose informed by the attributed topic lineage and linked primary documentation; migrated exercise seeds and solutions retain the upstream provenance recorded in `SOURCE_MANIFEST.md`. Formatting, local tooling, tests, navigation, corrections, new chapters, and the DSA roadmap are project changes. Advertising and sponsor copy were intentionally not retained.

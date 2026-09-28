@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/07-truthy-and-falsy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run conditionals-comparisons-and-truthiness --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test conditionals-comparisons-and-truthiness --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck conditionals-comparisons-and-truthiness --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit conditionals-comparisons-and-truthiness --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution conditionals-comparisons-and-truthiness --language typescript"
+  }
+}

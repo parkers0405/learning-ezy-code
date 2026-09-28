@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/02-variables-and-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run values-variables-and-primitives --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test values-variables-and-primitives --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck values-variables-and-primitives --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit values-variables-and-primitives --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution values-variables-and-primitives --language typescript"
+  }
+}

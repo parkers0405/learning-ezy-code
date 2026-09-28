@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/04-loops",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run loops-and-iteration --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test loops-and-iteration --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck loops-and-iteration --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit loops-and-iteration --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution loops-and-iteration --language typescript"
+  }
+}

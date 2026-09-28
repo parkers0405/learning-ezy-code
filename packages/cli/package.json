@@ -1,0 +1,16 @@
+{
+  "name": "@learning-ezy-code/cli",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trusted local curriculum orchestration for Learning Ezy Code",
+  "type": "module",
+  "scripts": {
+    "course": "node cli.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-18-abstract-classes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run abstract-classes --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test abstract-classes --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck abstract-classes --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit abstract-classes --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution abstract-classes --language typescript"
+  }
+}

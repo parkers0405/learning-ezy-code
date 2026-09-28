@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/08-classes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run classes --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test classes --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck classes --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit classes --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution classes --language typescript"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/03-functions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run functions-scope-and-returns --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test functions-scope-and-returns --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck functions-scope-and-returns --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit functions-scope-and-returns --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution functions-scope-and-returns --language typescript"
+  }
+}

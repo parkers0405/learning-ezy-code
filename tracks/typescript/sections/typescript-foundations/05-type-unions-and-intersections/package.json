@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-02-type-unions-and-intersections",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run type-unions-and-intersections --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test type-unions-and-intersections --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck type-unions-and-intersections --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit type-unions-and-intersections --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution type-unions-and-intersections --language typescript"
+  }
+}

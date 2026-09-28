@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-01-keyof-and-typeof",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run keyof-and-typeof --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test keyof-and-typeof --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck keyof-and-typeof --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit keyof-and-typeof --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution keyof-and-typeof --language typescript"
+  }
+}

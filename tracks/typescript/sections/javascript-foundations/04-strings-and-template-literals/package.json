@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/typescript-strings-and-template-literals",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run strings-and-template-literals --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test strings-and-template-literals --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck strings-and-template-literals --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit strings-and-template-literals --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution strings-and-template-literals --language typescript"
+  }
+}

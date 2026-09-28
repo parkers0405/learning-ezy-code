@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-14-type-aliases",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run type-aliases --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test type-aliases --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck type-aliases --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit type-aliases --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution type-aliases --language typescript"
+  }
+}

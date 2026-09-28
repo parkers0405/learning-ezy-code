@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-03-conditional-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run conditional-types --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test conditional-types --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck conditional-types --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit conditional-types --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution conditional-types --language typescript"
+  }
+}

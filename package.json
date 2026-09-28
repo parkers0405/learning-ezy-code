@@ -1,0 +1,49 @@
+{
+  "name": "learning-ezy-code",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An offline-first, IDE-first, language-agnostic programming curriculum",
+  "homepage": "https://github.com/parkers0405/learning-ezy-code#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkers0405/learning-ezy-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parkers0405/learning-ezy-code/issues"
+  },
+  "type": "module",
+  "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "packages/cli",
+    "tracks/typescript/sections/*/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "course": "yarn workspace @learning-ezy-code/cli course",
+    "languages": "yarn course languages",
+    "language": "yarn course language",
+    "chapters": "yarn course list",
+    "roadmap": "yarn course roadmap",
+    "read": "yarn course read",
+    "chapter": "yarn course chapter",
+    "submit": "yarn course submit",
+    "section": "yarn course test --section",
+    "run": "yarn course run",
+    "test": "yarn course test",
+    "test:all": "yarn course test --all",
+    "solution": "yarn course solution",
+    "validate:solutions": "yarn course validate-solutions",
+    "validate:starters": "yarn course validate-starters",
+    "test:tooling": "yarn workspace @learning-ezy-code/cli test",
+    "validate:manifests": "yarn course validate-manifests",
+    "typecheck": "yarn course typecheck-all",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "yarn format:check && yarn test:tooling && yarn validate:manifests && yarn validate:starters && yarn typecheck && yarn validate:solutions"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}

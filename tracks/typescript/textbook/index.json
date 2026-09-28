@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "title": "TypeScript: Runtime to Type System",
+  "readings": [
+    {
+      "id": "js-introduction",
+      "title": "Runtime and Compile-Time Introduction",
+      "path": "javascript-foundations/01-introduction.md"
+    },
+    {
+      "id": "js-values-variables-primitives",
+      "title": "Values, Variables, and Primitive Types",
+      "path": "javascript-foundations/02-values-variables-and-primitives.md"
+    },
+    {
+      "id": "js-operators-expressions",
+      "title": "Operators and Expressions",
+      "path": "javascript-foundations/03-operators-and-expressions.md"
+    },
+    {
+      "id": "js-strings-template-literals",
+      "title": "Strings and Template Literals",
+      "path": "javascript-foundations/04-strings-and-template-literals.md"
+    },
+    {
+      "id": "js-conditionals-truthiness",
+      "title": "Conditionals, Comparisons, and Truthiness",
+      "path": "javascript-foundations/05-conditionals-comparisons-and-truthiness.md"
+    },
+    {
+      "id": "js-functions-scope-returns",
+      "title": "Functions, Defaults, Scope, and Returns",
+      "path": "javascript-foundations/06-functions-scope-and-returns.md"
+    },
+    {
+      "id": "js-arrays-operations",
+      "title": "Arrays and Common Operations",
+      "path": "javascript-foundations/07-arrays-and-array-operations.md"
+    },
+    {
+      "id": "js-loops-iteration",
+      "title": "Loops and Iteration",
+      "path": "javascript-foundations/08-loops-and-iteration.md"
+    },
+    {
+      "id": "js-objects-destructuring",
+      "title": "Objects, Properties, and Destructuring",
+      "path": "javascript-foundations/09-objects-properties-and-destructuring.md"
+    },
+    {
+      "id": "js-map-set",
+      "title": "Map and Set",
+      "path": "javascript-foundations/10-map-and-set.md"
+    },
+    {
+      "id": "js-modules-errors",
+      "title": "Modules and Basic Error Handling",
+      "path": "javascript-foundations/11-modules-and-errors.md"
+    },
+    {
+      "id": "ts-classes",
+      "title": "Classes",
+      "path": "typescript-foundations/01-classes.md"
+    },
+    {
+      "id": "ts-interfaces",
+      "title": "Interfaces",
+      "path": "typescript-foundations/02-interfaces.md"
+    },
+    {
+      "id": "ts-type-assertions",
+      "title": "Type Assertions",
+      "path": "typescript-foundations/03-type-assertions.md"
+    },
+    {
+      "id": "ts-keyof-typeof",
+      "title": "keyof and typeof Operators",
+      "path": "typescript-foundations/04-keyof-and-typeof.md"
+    },
+    {
+      "id": "ts-unions-intersections",
+      "title": "Type Unions and Intersections",
+      "path": "typescript-foundations/05-type-unions-and-intersections.md"
+    },
+    {
+      "id": "ts-enum",
+      "title": "Enum Type",
+      "path": "typescript-foundations/06-enum-type.md"
+    },
+    {
+      "id": "ts-generics",
+      "title": "Generics",
+      "path": "typescript-foundations/07-generics.md"
+    },
+    {
+      "id": "ts-index-types",
+      "title": "Index Types",
+      "path": "typescript-foundations/08-index-types.md"
+    },
+    {
+      "id": "ts-literal-types",
+      "title": "Literal Types",
+      "path": "typescript-foundations/09-literal-types.md"
+    },
+    {
+      "id": "ts-tuples",
+      "title": "Tuple Types",
+      "path": "typescript-foundations/10-tuple-types.md"
+    },
+    {
+      "id": "ts-aliases",
+      "title": "Type Aliases",
+      "path": "typescript-foundations/11-type-aliases.md"
+    },
+    {
+      "id": "ts-guards",
+      "title": "Type Guards",
+      "path": "typescript-foundations/12-type-guards.md"
+    },
+    {
+      "id": "ts-abstract-classes",
+      "title": "Abstract Classes",
+      "path": "typescript-foundations/13-abstract-classes.md"
+    },
+    {
+      "id": "ts-conditional-types",
+      "title": "Conditional Types",
+      "path": "advanced-types/01-conditional-types.md"
+    },
+    {
+      "id": "ts-discriminated-unions",
+      "title": "Discriminated Unions",
+      "path": "advanced-types/02-discriminated-unions.md"
+    },
+    {
+      "id": "ts-mapped-types",
+      "title": "Mapped Types",
+      "path": "advanced-types/03-mapped-types.md"
+    },
+    {
+      "id": "ts-mixins",
+      "title": "Mixins",
+      "path": "advanced-types/04-mixins.md"
+    },
+    {
+      "id": "ts-namespaces",
+      "title": "Namespaces",
+      "path": "advanced-types/05-namespaces.md"
+    },
+    {
+      "id": "ts-readonly",
+      "title": "Readonly Type",
+      "path": "advanced-types/06-readonly-type.md"
+    },
+    {
+      "id": "ts-decorators",
+      "title": "Decorators",
+      "path": "advanced-types/07-decorators.md"
+    },
+    {
+      "id": "ts-utility-types",
+      "title": "Utility Types",
+      "path": "advanced-types/08-utility-types.md"
+    }
+  ]
+}

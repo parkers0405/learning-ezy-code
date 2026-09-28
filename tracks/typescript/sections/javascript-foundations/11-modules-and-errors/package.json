@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/10-modules",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run modules-and-errors --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test modules-and-errors --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck modules-and-errors --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit modules-and-errors --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution modules-and-errors --language typescript"
+  }
+}

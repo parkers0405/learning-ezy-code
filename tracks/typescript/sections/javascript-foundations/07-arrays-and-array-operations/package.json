@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/05-arrays",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run arrays-and-array-operations --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test arrays-and-array-operations --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck arrays-and-array-operations --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit arrays-and-array-operations --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution arrays-and-array-operations --language typescript"
+  }
+}

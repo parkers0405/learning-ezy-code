@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/typescript-map-and-set",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run map-and-set --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test map-and-set --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck map-and-set --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit map-and-set --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution map-and-set --language typescript"
+  }
+}

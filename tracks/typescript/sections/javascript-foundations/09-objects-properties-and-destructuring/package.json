@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/typescript-objects-properties-and-destructuring",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run objects-properties-and-destructuring --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test objects-properties-and-destructuring --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck objects-properties-and-destructuring --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit objects-properties-and-destructuring --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution objects-properties-and-destructuring --language typescript"
+  }
+}

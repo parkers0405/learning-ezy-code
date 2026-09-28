@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-07-literal-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run literal-types --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test literal-types --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck literal-types --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit literal-types --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution literal-types --language typescript"
+  }
+}

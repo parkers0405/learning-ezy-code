@@ -1,0 +1,11 @@
+node_modules/
+.yarn/
+.pnp.*
+.current-chapter
+.learn-ts/
+.learn-ts-tmp/
+.learn-code/
+dist/
+coverage/
+*.log
+.DS_Store

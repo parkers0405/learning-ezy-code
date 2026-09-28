@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-16-decorators",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run decorators --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test decorators --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck decorators --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit decorators --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution decorators --language typescript"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-09-mapped-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run mapped-types --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test mapped-types --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck mapped-types --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit mapped-types --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution mapped-types --language typescript"
+  }
+}

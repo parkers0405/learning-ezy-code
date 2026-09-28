@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/advanced-04-enum-type",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run enum-type --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test enum-type --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck enum-type --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit enum-type --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution enum-type --language typescript"
+  }
+}

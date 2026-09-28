@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "languages": [
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "manifest": "tracks/typescript/track.json",
+      "adapter": "typescript"
+    }
+  ]
+}

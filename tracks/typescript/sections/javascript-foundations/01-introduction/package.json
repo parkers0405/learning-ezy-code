@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/01-introduction",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run introduction --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test introduction --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck introduction --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit introduction --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution introduction --language typescript"
+  }
+}
