@@ -15,7 +15,16 @@ corepack yarn read 1
 corepack yarn chapter 1
 ```
 
-Then open the selected exercise directory and edit `starter.ts`. Its visible `exercise.test.ts` is the behavioral contract.
+Installation, language selection, and the roadmap are root-level monorepo operations. `yarn chapter 1` selects the chapter and prints its directory. Daily exercise work happens inside that directory:
+
+```sh
+cd tracks/typescript/sections/javascript-foundations/01-introduction
+corepack yarn typecheck
+corepack yarn test
+corepack yarn submit
+```
+
+Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. Every chapter has the same local commands, while dependencies and the lockfile remain shared at the repository root.
 
 ## Root commands
 
