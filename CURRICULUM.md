@@ -1,6 +1,6 @@
 # Curriculum
 
-The authoritative machine-readable order is `tracks/typescript/track.json`; the canonical prose order is the [TypeScript textbook index](tracks/typescript/textbook/README.md). Run `yarn chapters --language typescript` to render all 32 exercises from the manifest.
+The authoritative machine-readable order is `tracks/typescript/track.json`; the canonical prose order is the [TypeScript textbook index](tracks/typescript/textbook/README.md). Run `ezy tracks`, `ezy use typescript`, and `ezy status` to navigate all 32 exercises from the manifest.
 
 ## Part 0 — JavaScript Foundations (11)
 

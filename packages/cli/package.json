@@ -4,6 +4,9 @@
   "private": true,
   "description": "Trusted local curriculum orchestration for Learning Ezy Code",
   "type": "module",
+  "bin": {
+    "ezy": "cli.mjs"
+  },
   "scripts": {
     "course": "node cli.mjs",
     "test": "node --test test/*.test.mjs"

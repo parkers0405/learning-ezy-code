@@ -384,6 +384,8 @@ __metadata:
     tsx: "npm:^4.19.2"
     typescript: "npm:^5.7.3"
     vitest: "npm:^3.2.4"
+  bin:
+    ezy: cli.mjs
   languageName: unknown
   linkType: soft
 

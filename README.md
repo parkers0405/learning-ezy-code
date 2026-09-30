@@ -8,34 +8,32 @@ The fully implemented track is **TypeScript**: 32 sequential chapters from JavaS
 
 ```sh
 corepack yarn install
-corepack yarn languages
-corepack yarn language use typescript
-corepack yarn roadmap
-corepack yarn read 1
-corepack yarn chapter 1
+./ezy install
+ezy use typescript
+ezy start 1
 ```
 
-Installation, language selection, and the roadmap are root-level monorepo operations. `yarn chapter 1` selects the chapter and prints its directory. Daily exercise work happens inside that directory:
+The one-time installer places an `ezy` link in `~/.local/bin` without copying the project or changing shell configuration. The CLI remembers the active language and chapter, so daily work does not require a deep `cd`:
 
 ```sh
-cd tracks/typescript/sections/javascript-foundations/01-introduction
-corepack yarn typecheck
-corepack yarn test
-corepack yarn submit
+ezy status
+ezy read
+ezy test
+ezy submit
 ```
 
-Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. Every chapter has the same local commands, while dependencies and the lockfile remain shared at the repository root.
+`ezy start [chapter]` prints the reading, exercise, and `starter.ts` paths. Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. The command works from any directory. Direct chapter-local `corepack yarn test` and `corepack yarn submit` commands remain available as an alternative.
 
-## Root commands
+## CLI commands
 
-- `yarn languages` — list discovered language manifests.
-- `yarn language show` / `yarn language use <id>` — inspect or select a track.
-- `yarn chapters` — list the active track's manifest-defined chapters.
-- `yarn roadmap` — show sequential status and the current exercise's reading paths.
-- `yarn read [chapter]` — show required offline readings; add `--print` to print them.
-- `yarn test [chapter]`, `yarn submit [chapter]`, and `yarn solution [chapter]` — work on one exercise.
+- `ezy tracks` — list discovered language manifests.
+- `ezy use <id>` — select a language track.
+- `ezy start [chapter]` — select or resume an exercise and print its files and readings.
+- `ezy status` — show sequential progress and the current exercise's reading paths.
+- `ezy read [chapter]` — show required offline readings; add `--print` to print them.
+- `ezy test [chapter]`, `ezy submit [chapter]`, and `ezy solution [chapter]` — work on one exercise.
 - Add `--language <id>` to explicitly target a track without changing the active selection.
-- `yarn validate` — run formatting, tooling, manifest, starter, strict type, and solution checks.
+- `corepack yarn validate` — run the repository's complete maintainer validation.
 
 ## Textbooks and exercises
 

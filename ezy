@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+import { constants } from "node:fs";
+import {
+  access,
+  lstat,
+  mkdir,
+  readlink,
+  symlink,
+  unlink,
+} from "node:fs/promises";
+import { homedir } from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const launcher = fileURLToPath(import.meta.url);
+const command = process.argv[2];
+const binDirectory =
+  process.env.EZY_BIN_DIR ?? path.join(homedir(), ".local", "bin");
+const installedLauncher = path.join(binDirectory, "ezy");
+
+async function existingTarget() {
+  try {
+    const metadata = await lstat(installedLauncher);
+    if (!metadata.isSymbolicLink()) {
+      throw new Error(
+        `${installedLauncher} exists and is not a symbolic link.`,
+      );
+    }
+    return path.resolve(binDirectory, await readlink(installedLauncher));
+  } catch (error) {
+    if (error.code === "ENOENT") return undefined;
+    throw error;
+  }
+}
+
+if (command === "install") {
+  await mkdir(binDirectory, { recursive: true });
+  const target = await existingTarget();
+  if (target && target !== launcher) {
+    throw new Error(
+      `${installedLauncher} already points to ${target}; refusing to replace it.`,
+    );
+  }
+  if (!target) await symlink(launcher, installedLauncher, "file");
+  await access(installedLauncher, constants.X_OK);
+  console.log(`Installed ezy at ${installedLauncher}`);
+  if (!(process.env.PATH ?? "").split(path.delimiter).includes(binDirectory)) {
+    console.log(`Add ${binDirectory} to PATH before running ezy.`);
+  }
+} else if (command === "uninstall") {
+  const target = await existingTarget();
+  if (!target) {
+    console.log(`ezy is not installed at ${installedLauncher}`);
+  } else if (target !== launcher) {
+    throw new Error(
+      `${installedLauncher} points to ${target}; refusing to remove it.`,
+    );
+  } else {
+    await unlink(installedLauncher);
+    console.log(`Removed ${installedLauncher}`);
+  }
+} else {
+  await import("./packages/cli/cli.mjs");
+}

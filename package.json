@@ -21,6 +21,8 @@
     "node": ">=20"
   },
   "scripts": {
+    "ezy": "node ezy",
+    "start": "node ezy start",
     "course": "yarn workspace @learning-ezy-code/cli course",
     "languages": "yarn course languages",
     "language": "yarn course language",

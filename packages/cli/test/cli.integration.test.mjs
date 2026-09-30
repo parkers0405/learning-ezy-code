@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { readFile, stat } from "node:fs/promises";
+import { mkdtemp, readFile, readlink, rm, stat } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -10,6 +11,7 @@ const root = path.resolve(
   "../../..",
 );
 const cli = path.join(root, "packages", "cli", "cli.mjs");
+const launcher = path.join(root, "ezy");
 const stateFile = path.join(root, ".learn-code", "state.json");
 
 function execute(command, args) {
@@ -73,5 +75,80 @@ test("the root chapter script forwards the chapter subcommand", async () => {
   assert.notEqual(result.code, 0);
   assert.match(result.output, /No chapter matches 'definitely-not-a-chapter'/);
   assert.doesNotMatch(result.output, /Unknown command/);
+  assert.deepEqual(await stateSnapshot(), before);
+});
+
+test("the ezy launcher exposes concise commands from outside the repository", async () => {
+  const result = await new Promise((resolve) => {
+    const child = spawn(process.execPath, [launcher, "--help"], {
+      cwd: os.tmpdir(),
+      env: process.env,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    let output = "";
+    child.stdout.on("data", (chunk) => (output += chunk));
+    child.stderr.on("data", (chunk) => (output += chunk));
+    child.on("close", (code) => resolve({ code, output }));
+  });
+  assert.equal(result.code, 0);
+  assert.match(result.output, /ezy start \[chapter\]/);
+  assert.match(result.output, /ezy submit \[chapter\]/);
+});
+
+test("the launcher installs and removes only its own ezy symlink", async () => {
+  const binDirectory = await mkdtemp(path.join(os.tmpdir(), "ezy-bin-"));
+  try {
+    const environment = { ...process.env, EZY_BIN_DIR: binDirectory };
+    const installed = await new Promise((resolve) => {
+      const child = spawn(process.execPath, [launcher, "install"], {
+        cwd: root,
+        env: environment,
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      let output = "";
+      child.stdout.on("data", (chunk) => (output += chunk));
+      child.stderr.on("data", (chunk) => (output += chunk));
+      child.on("close", (code) => resolve({ code, output }));
+    });
+    assert.equal(installed.code, 0, installed.output);
+    assert.equal(
+      path.resolve(
+        binDirectory,
+        await readlink(path.join(binDirectory, "ezy")),
+      ),
+      launcher,
+    );
+
+    const removed = await new Promise((resolve) => {
+      const child = spawn(process.execPath, [launcher, "uninstall"], {
+        cwd: root,
+        env: environment,
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      let output = "";
+      child.stdout.on("data", (chunk) => (output += chunk));
+      child.stderr.on("data", (chunk) => (output += chunk));
+      child.on("close", (code) => resolve({ code, output }));
+    });
+    assert.equal(removed.code, 0, removed.output);
+    await assert.rejects(stat(path.join(binDirectory, "ezy")), {
+      code: "ENOENT",
+    });
+  } finally {
+    await rm(binDirectory, { recursive: true, force: true });
+  }
+});
+
+test("ezy start rejects invalid chapters without changing progress", async () => {
+  const before = await stateSnapshot();
+  const result = await execute(process.execPath, [
+    launcher,
+    "start",
+    "definitely-not-a-chapter",
+    "--language",
+    "typescript",
+  ]);
+  assert.notEqual(result.code, 0);
+  assert.match(result.output, /No chapter matches 'definitely-not-a-chapter'/);
   assert.deepEqual(await stateSnapshot(), before);
 });

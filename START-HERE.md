@@ -1,12 +1,11 @@
 # Start Here
 
 1. Install Node.js 20 or later, enable Corepack, and run `corepack yarn install` at the repository root. Installation is the only package-fetching step; readings and exercise workflows are local afterward.
-2. Run `corepack yarn languages`, then `corepack yarn language use typescript`.
-3. Run `corepack yarn roadmap`. The arrow marks the first incomplete or stale chapter and lists its required readings.
-4. Run `corepack yarn read` (or `corepack yarn read --print`), then `corepack yarn chapter 1`. The chapter command selects the exercise and prints its directory.
-5. `cd` into the printed exercise directory. Edit only the learner files described by its contract, then run `corepack yarn typecheck` and `corepack yarn test` from that directory.
-6. Run `corepack yarn submit` from the exercise directory after tests pass. Sequential completion unlocks the next chapter. Return to the repository root whenever you want to run `corepack yarn roadmap` or select another language.
+2. Run `./ezy install` once. It creates `~/.local/bin/ezy` and refuses to replace an unrelated command. If `~/.local/bin` is not on `PATH`, the installer tells you to add it.
+3. Run `ezy use typescript`, then `ezy start 1`. The start command selects the exercise and prints its reading, exercise, and learner-file paths.
+4. Run `ezy read` (or `ezy read --print`) and edit the printed `starter.ts` in your IDE.
+5. Run `ezy test`, then `ezy submit`. Sequential completion unlocks the next chapter; use `ezy start` to resume it and `ezy status` to see the full roadmap.
 
-The CLI records pass evidence, not reading behavior. It shows required readings but never claims that you read them. Reference solutions are local and printable with `yarn solution`; compare only after making a serious attempt.
+The CLI works from any directory and records pass evidence, not reading behavior. It shows required readings but never claims that you read them. Reference solutions are local and printable with `ezy solution`; compare only after making a serious attempt. Direct chapter-local Yarn scripts remain available but are optional.
 
 If a previously passed chapter is marked **stale**, learner source, visible tests, or its README contract changed. Re-run and resubmit it. State for one language never unlocks another language.

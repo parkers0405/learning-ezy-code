@@ -72,7 +72,34 @@ function printResult(result) {
 
 async function main() {
   const extracted = extractLanguage(process.argv.slice(2));
-  const [command = "roadmap", ...args] = extracted.args;
+  const [requestedCommand = "status", ...requestedArgs] = extracted.args;
+  if (["help", "--help", "-h"].includes(requestedCommand)) {
+    console.log(`Learning Ezy Code
+
+Usage:
+  ezy tracks
+  ezy use <language>
+  ezy start [chapter]
+  ezy status
+  ezy read [chapter] [--print]
+  ezy run [chapter]
+  ezy test [chapter]
+  ezy submit [chapter]
+  ezy solution [chapter]
+
+Add --language <id> to target a track without changing the active language.`);
+    return;
+  }
+  const aliases = new Map([
+    ["tracks", "languages"],
+    ["status", "roadmap"],
+  ]);
+  let command = aliases.get(requestedCommand) ?? requestedCommand;
+  let args = requestedArgs;
+  if (requestedCommand === "use") {
+    command = "language";
+    args = ["use", ...requestedArgs];
+  }
   const catalog = await loadCatalog(root);
   for (const candidate of catalog.languages) {
     const candidateAdapter = getAdapter(candidate.adapter);
@@ -141,7 +168,7 @@ async function main() {
       );
     return;
   }
-  if (command === "chapter") {
+  if (command === "chapter" || command === "start") {
     const chapter = chooseChapter(language, loaded.state, args[0]);
     const updated = await transactState({
       root,
@@ -155,9 +182,23 @@ async function main() {
       },
     });
     if (updated.warning) console.warn(updated.warning);
-    console.log(
-      `Selected ${chapter.number}. ${chapter.title}\n${path.relative(root, chapter.absolutePath)}`,
-    );
+    const exercisePath = path.relative(root, chapter.absolutePath);
+    if (command === "chapter") {
+      console.log(
+        `Selected ${chapter.number}. ${chapter.title}\n${exercisePath}`,
+      );
+      return;
+    }
+    console.log(`Started ${chapter.number}. ${chapter.title}`);
+    console.log(`Exercise: ${exercisePath}`);
+    console.log(`Edit: ${path.join(exercisePath, "starter.ts")}`);
+    console.log("Required reading:");
+    for (const reading of chapter.readingsResolved) {
+      console.log(
+        `- ${reading.title}: ${path.relative(root, reading.absolutePath)}`,
+      );
+    }
+    console.log("\nNext commands: ezy read, ezy test, ezy submit");
     return;
   }
   if (command === "read") {
