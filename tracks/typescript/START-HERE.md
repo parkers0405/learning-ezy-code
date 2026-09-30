@@ -4,7 +4,7 @@ You need Node.js 20+, Corepack, and an editor. From the repository root run:
 
 ```sh
 corepack yarn install
-./ezy install
+./ezy install --shell
 ezy use typescript
 ezy start 1
 ezy read

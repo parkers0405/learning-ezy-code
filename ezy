@@ -2,11 +2,14 @@
 import { constants } from "node:fs";
 import {
   access,
+  appendFile,
   lstat,
   mkdir,
+  readFile,
   readlink,
   symlink,
   unlink,
+  writeFile,
 } from "node:fs/promises";
 import { homedir } from "node:os";
 import path from "node:path";
@@ -14,9 +17,58 @@ import { fileURLToPath } from "node:url";
 
 const launcher = fileURLToPath(import.meta.url);
 const command = process.argv[2];
+const homeDirectory = process.env.EZY_HOME ?? homedir();
 const binDirectory =
-  process.env.EZY_BIN_DIR ?? path.join(homedir(), ".local", "bin");
+  process.env.EZY_BIN_DIR ?? path.join(homeDirectory, ".local", "bin");
 const installedLauncher = path.join(binDirectory, "ezy");
+
+async function readOptional(filePath) {
+  try {
+    return await readFile(filePath, "utf8");
+  } catch (error) {
+    if (error.code === "ENOENT") return "";
+    throw error;
+  }
+}
+
+function shellConfig(shellName) {
+  if (shellName === "bash") return path.join(homeDirectory, ".bashrc");
+  if (shellName === "zsh") return path.join(homeDirectory, ".zshrc");
+  throw new Error(
+    `Automatic shell integration supports bash and zsh, not '${shellName}'. Run 'ezy init <shell>' manually.`,
+  );
+}
+
+function integrationBlock(shellName) {
+  return `# >>> Learning Ezy Code >>>\neval "$("${installedLauncher}" init ${shellName})"\n# <<< Learning Ezy Code <<<`;
+}
+
+async function installShellIntegration() {
+  const shellName = path.basename(process.env.SHELL ?? "");
+  const configPath = shellConfig(shellName);
+  const contents = await readOptional(configPath);
+  const block = integrationBlock(shellName);
+  if (!contents.includes(block)) {
+    const separator =
+      contents.length > 0 && !contents.endsWith("\n") ? "\n" : "";
+    await appendFile(configPath, `${separator}${block}\n`, { mode: 0o600 });
+  }
+  return { configPath, shellName };
+}
+
+async function uninstallShellIntegration() {
+  for (const shellName of ["bash", "zsh"]) {
+    const configPath = shellConfig(shellName);
+    const contents = await readOptional(configPath);
+    if (!contents) continue;
+    const block = integrationBlock(shellName);
+    const updated = contents
+      .replace(`${block}\n`, "")
+      .replace(block, "")
+      .replace(/\n{3,}/g, "\n\n");
+    if (updated !== contents) await writeFile(configPath, updated);
+  }
+}
 
 async function existingTarget() {
   try {
@@ -47,15 +99,30 @@ if (command === "install") {
   if (!(process.env.PATH ?? "").split(path.delimiter).includes(binDirectory)) {
     console.log(`Add ${binDirectory} to PATH before running ezy.`);
   }
+  if (process.argv.includes("--shell")) {
+    const { configPath, shellName } = await installShellIntegration();
+    console.log(`Enabled ${shellName} integration in ${configPath}`);
+    console.log(`Run 'source ${configPath}' or open a new terminal.`);
+  } else {
+    console.log(
+      "Run './ezy install --shell' if you want 'ezy start' to enter the exercise directory.",
+    );
+  }
 } else if (command === "uninstall") {
   const target = await existingTarget();
   if (!target) {
+    if (process.argv.includes("--shell")) {
+      await uninstallShellIntegration();
+    }
     console.log(`ezy is not installed at ${installedLauncher}`);
   } else if (target !== launcher) {
     throw new Error(
       `${installedLauncher} points to ${target}; refusing to remove it.`,
     );
   } else {
+    if (process.argv.includes("--shell")) {
+      await uninstallShellIntegration();
+    }
     await unlink(installedLauncher);
     console.log(`Removed ${installedLauncher}`);
   }

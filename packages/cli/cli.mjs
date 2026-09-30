@@ -80,6 +80,7 @@ Usage:
   ezy tracks
   ezy use <language>
   ezy start [chapter]
+  ezy path [chapter] [--absolute]
   ezy status
   ezy read [chapter] [--print]
   ezy run [chapter]
@@ -88,6 +89,24 @@ Usage:
   ezy solution [chapter]
 
 Add --language <id> to target a track without changing the active language.`);
+    return;
+  }
+  if (requestedCommand === "init") {
+    const shell = requestedArgs[0];
+    if (!["bash", "zsh"].includes(shell)) {
+      throw new Error("Usage: ezy init <bash | zsh>");
+    }
+    console.log(`ezy() {
+  if [ "\${1-}" = "start" ]; then
+    command ezy "$@" || return $?
+    local ezy_directory
+    ezy_directory="$(command ezy path "\${@:2}" --absolute)" || return $?
+    builtin cd -- "$ezy_directory" || return $?
+    printf 'Entered %s\\n' "$PWD"
+  else
+    command ezy "$@"
+  fi
+}`);
     return;
   }
   const aliases = new Map([
@@ -166,6 +185,19 @@ Add --language <id> to target a track without changing the active language.`);
       console.log(
         `${String(chapter.number).padStart(2)}  ${chapter.id.padEnd(30)} ${chapter.title}`,
       );
+    return;
+  }
+  if (command === "path") {
+    const chapter = chooseChapter(
+      language,
+      loaded.state,
+      args.find((arg) => !arg.startsWith("--")),
+    );
+    console.log(
+      args.includes("--absolute")
+        ? chapter.absolutePath
+        : path.relative(root, chapter.absolutePath),
+    );
     return;
   }
   if (command === "chapter" || command === "start") {

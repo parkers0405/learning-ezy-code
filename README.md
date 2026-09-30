@@ -8,12 +8,12 @@ The fully implemented track is **TypeScript**: 32 sequential chapters from JavaS
 
 ```sh
 corepack yarn install
-./ezy install
+./ezy install --shell
 ezy use typescript
 ezy start 1
 ```
 
-The one-time installer places an `ezy` link in `~/.local/bin` without copying the project or changing shell configuration. The CLI remembers the active language and chapter, so daily work does not require a deep `cd`:
+The one-time installer places an `ezy` link in `~/.local/bin` and adds a clearly marked, removable Bash/Zsh hook. Open a new terminal or source the shell file printed by the installer. The CLI remembers the active language and chapter, and `ezy start` changes the current shell into that exercise directory:
 
 ```sh
 ezy status
@@ -22,7 +22,7 @@ ezy test
 ezy submit
 ```
 
-`ezy start [chapter]` prints the reading, exercise, and `starter.ts` paths. Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. The command works from any directory. Direct chapter-local `corepack yarn test` and `corepack yarn submit` commands remain available as an alternative.
+`ezy start [chapter]` selects the chapter, prints its reading and `starter.ts`, and enters its exercise directory. Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. Direct chapter-local `corepack yarn test` and `corepack yarn submit` commands remain available as an alternative.
 
 ## Chapter loop
 
@@ -44,11 +44,14 @@ ezy start         # opens the newly selected chapter
 - `ezy tracks` — list discovered language manifests.
 - `ezy use <id>` — select a language track.
 - `ezy start [chapter]` — select or resume an exercise and print its files and readings.
+- `ezy path [chapter]` — print an exercise path for scripts or editor integration.
 - `ezy status` — show sequential progress and the current exercise's reading paths.
 - `ezy read [chapter]` — show required offline readings; add `--print` to print them.
 - `ezy test [chapter]`, `ezy submit [chapter]`, and `ezy solution [chapter]` — work on one exercise.
 - Add `--language <id>` to explicitly target a track without changing the active selection.
 - `corepack yarn validate` — run the repository's complete maintainer validation.
+
+The shell hook is explicit and reversible: `./ezy uninstall --shell` removes both the command link and the marked shell block. Without the hook, the executable still works but can only print paths because a child process cannot change its parent shell directory.
 
 ## Textbooks and exercises
 

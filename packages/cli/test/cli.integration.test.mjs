@@ -92,7 +92,16 @@ test("the ezy launcher exposes concise commands from outside the repository", as
   });
   assert.equal(result.code, 0);
   assert.match(result.output, /ezy start \[chapter\]/);
+  assert.match(result.output, /ezy path \[chapter\]/);
   assert.match(result.output, /ezy submit \[chapter\]/);
+});
+
+test("the generated shell hook delegates start and enters its selected path", async () => {
+  const result = await execute(process.execPath, [launcher, "init", "bash"]);
+  assert.equal(result.code, 0, result.output);
+  assert.match(result.output, /command ezy "\$@"/);
+  assert.match(result.output, /command ezy path "\$\{@:2\}" --absolute/);
+  assert.match(result.output, /builtin cd -- "\$ezy_directory"/);
 });
 
 test("the launcher installs and removes only its own ezy symlink", async () => {
@@ -136,6 +145,47 @@ test("the launcher installs and removes only its own ezy symlink", async () => {
     });
   } finally {
     await rm(binDirectory, { recursive: true, force: true });
+  }
+});
+
+test("the installer manages an idempotent shell hook", async () => {
+  const homeDirectory = await mkdtemp(path.join(os.tmpdir(), "ezy-home-"));
+  const binDirectory = path.join(homeDirectory, "bin");
+  const environment = {
+    ...process.env,
+    EZY_BIN_DIR: binDirectory,
+    EZY_HOME: homeDirectory,
+    SHELL: "/bin/bash",
+  };
+  const run = (args) =>
+    new Promise((resolve) => {
+      const child = spawn(process.execPath, [launcher, ...args], {
+        cwd: root,
+        env: environment,
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      let output = "";
+      child.stdout.on("data", (chunk) => (output += chunk));
+      child.stderr.on("data", (chunk) => (output += chunk));
+      child.on("close", (code) => resolve({ code, output }));
+    });
+  try {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const installed = await run(["install", "--shell"]);
+      assert.equal(installed.code, 0, installed.output);
+    }
+    const bashrc = await readFile(path.join(homeDirectory, ".bashrc"), "utf8");
+    assert.equal((bashrc.match(/>>> Learning Ezy Code >>>/g) ?? []).length, 1);
+    assert.match(bashrc, /ezy" init bash/);
+
+    const removed = await run(["uninstall", "--shell"]);
+    assert.equal(removed.code, 0, removed.output);
+    assert.doesNotMatch(
+      await readFile(path.join(homeDirectory, ".bashrc"), "utf8"),
+      /Learning Ezy Code/,
+    );
+  } finally {
+    await rm(homeDirectory, { recursive: true, force: true });
   }
 });
 
