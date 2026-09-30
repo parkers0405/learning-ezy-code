@@ -24,6 +24,21 @@ ezy submit
 
 `ezy start [chapter]` prints the reading, exercise, and `starter.ts` paths. Edit `starter.ts`; the visible `exercise.test.ts` is its behavioral contract. The command works from any directory. Direct chapter-local `corepack yarn test` and `corepack yarn submit` commands remain available as an alternative.
 
+## Chapter loop
+
+Start at chapter 1, then repeat the same short loop:
+
+```sh
+ezy start 1       # only needed for the first chapter
+ezy read --print
+# edit the printed starter.ts path in your IDE
+ezy test
+ezy submit        # records the pass and selects the next chapter
+ezy start         # opens the newly selected chapter
+```
+
+`ezy submit` records progress only after every authoritative check passes. It then prints and selects the next chapter. `ezy status` shows passed, current, locked, or stale chapters at any time. Progress remains in the local, gitignored `.learn-code/state.json`, so pulling or pushing source code does not overwrite it.
+
 ## CLI commands
 
 - `ezy tracks` — list discovered language manifests.

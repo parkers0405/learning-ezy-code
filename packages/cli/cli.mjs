@@ -319,6 +319,7 @@ Add --language <id> to target a track without changing the active language.`);
     if (!printResult(result))
       return fail(`${chapter.title}: ${result.phase} failed.`);
     if (command === "submit") {
+      const nextChapter = language.chapters[chapter.number];
       const allFingerprints = await fingerprints(language, adapter);
       const updated = await transactState({
         root,
@@ -339,8 +340,7 @@ Add --language <id> to target a track without changing the active language.`);
             );
           state.tracks[language.id] = {
             ...track,
-            selectedChapter:
-              language.chapters[chapter.number]?.id ?? chapter.id,
+            selectedChapter: nextChapter?.id ?? chapter.id,
             completions: recordCompletion(
               track.completions ?? {},
               chapter.id,
@@ -352,6 +352,15 @@ Add --language <id> to target a track without changing the active language.`);
       });
       if (updated.warning) console.warn(updated.warning);
       console.log(`Recorded completion for ${chapter.title}.`);
+      if (nextChapter) {
+        console.log(
+          `Next: ${nextChapter.number}. ${nextChapter.title}\nRun 'ezy start' when you are ready.`,
+        );
+      } else {
+        console.log(
+          "TypeScript track complete. Run 'ezy status' to review it.",
+        );
+      }
     }
     return;
   }
