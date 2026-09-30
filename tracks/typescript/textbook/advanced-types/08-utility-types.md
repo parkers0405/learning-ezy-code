@@ -1,12 +1,12 @@
 # Utility Types
 
-## Objectives
+## Goal
 
 - Derive focused types with built-in utilities.
 - Choose utilities that reflect real runtime operations.
 - Avoid deep, opaque compositions.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 TypeScript ships generic transformations for common type relationships. They are compile-time only.
 
@@ -45,7 +45,19 @@ Utilities derive adjacency records, immutable snapshots, test builders, and func
 2. How do `Pick` and `Omit` differ?
 3. Are built-in readonly/partial transformations deep?
 
-## References
+## Prerequisite recap
+
+Mapped and conditional types can systematically transform object properties and union members.
+
+## Terms introduced
+
+A **utility type** is a reusable checker-provided type transformation. `Partial`, `Required`, `Pick`, `Omit`, and `Record` each derive a new type from existing keys or properties.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [TypeScript Handbook: Creating Types from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)

@@ -1,12 +1,12 @@
 # Namespaces
 
-## Objectives
+## Goal
 
 - Read namespace declarations in existing TypeScript.
 - Distinguish namespaces from ECMAScript modules.
 - Avoid unnecessary namespace/module combinations.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 A TypeScript namespace groups names and emits JavaScript that builds or augments an object.
 
@@ -43,7 +43,19 @@ Namespaces occasionally organize global educational scripts, but modules usually
 2. What modern feature normally provides file-level scope?
 3. Why might declaration files still use namespaces?
 
-## References
+## Prerequisite recap
+
+Modules already provide file-level scope, exports, imports, and explicit dependency direction.
+
+## Terms introduced
+
+A **namespace** groups names under one emitted runtime object. **Declaration merging** combines compatible declarations with the same namespace name.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Namespaces](https://www.typescriptlang.org/docs/handbook/namespaces.html)
 - [TypeScript Handbook: Namespaces and Modules](https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html)

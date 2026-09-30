@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-function-basics",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run function-basics --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test function-basics --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck function-basics --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit function-basics --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution function-basics --language typescript"
+  }
+}

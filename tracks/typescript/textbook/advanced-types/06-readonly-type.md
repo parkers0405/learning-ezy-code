@@ -1,12 +1,12 @@
 # Readonly Types
 
-## Objectives
+## Goal
 
 - Prevent assignment through readonly views.
 - Use readonly arrays and tuples in input contracts.
 - Separate static immutability from runtime freezing.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 `readonly` prevents writes through a particular TypeScript reference.
 
@@ -41,7 +41,19 @@ Readonly inputs make it explicit whether sorting, traversal, or dynamic programm
 2. Why accept `readonly T[]` for read-only algorithms?
 3. Can another alias still mutate the value?
 
-## References
+## Prerequisite recap
+
+Object and array types describe accessible members, while mapped types can transform each property.
+
+## Terms introduced
+
+`readonly` is a checker restriction on assignment through a reference. **Shallow readonly** protects only the outer properties; nested mutable values require their own readonly descriptions.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: readonly Properties](https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties)
 - [TypeScript Handbook: ReadonlyArray](https://www.typescriptlang.org/docs/handbook/2/objects.html#the-readonlyarray-type)

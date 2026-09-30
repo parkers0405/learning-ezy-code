@@ -14,6 +14,7 @@ import os, { hostname } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import {
+  emptyState,
   loadState,
   migrateLegacyState,
   parseState,
@@ -126,6 +127,53 @@ test("atomic writes fsync and replace versioned JSON without temporary files", a
     );
   } finally {
     await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("an injected state file is isolated from root legacy files and locks beside itself", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "learn-code-root-"));
+  const isolated = await mkdtemp(
+    path.join(os.tmpdir(), "learn-code-isolated-"),
+  );
+  const stateFile = path.join(isolated, "progress.json");
+  try {
+    await mkdir(path.join(root, ".learn-ts"), { recursive: true });
+    await writeFile(
+      path.join(root, ".learn-ts", "progress.json"),
+      JSON.stringify({
+        version: 1,
+        completions: { "legacy-one": completion("legacy") },
+      }),
+    );
+
+    const loaded = await loadState({ root, catalog, stateFile });
+    assert.deepEqual(loaded.state, emptyState("typescript"));
+    await assert.rejects(access(stateFile));
+
+    await transactState({
+      root,
+      catalog,
+      stateFile,
+      mutate: async (state) => {
+        state.tracks.typescript = {
+          selectedChapter: "one",
+          completions: {},
+        };
+        return { state };
+      },
+    });
+    assert.equal(
+      JSON.parse(await readFile(stateFile, "utf8")).tracks.typescript
+        .selectedChapter,
+      "one",
+    );
+    await assert.rejects(access(path.join(isolated, "state.lock")));
+    await assert.rejects(access(path.join(root, ".learn-code", "state.lock")));
+  } finally {
+    await Promise.all([
+      rm(root, { recursive: true, force: true }),
+      rm(isolated, { recursive: true, force: true }),
+    ]);
   }
 });
 

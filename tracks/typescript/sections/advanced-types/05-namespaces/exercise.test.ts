@@ -1,5 +1,16 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, expectTypeOf, it } from "vitest";
 import { Geometry } from "@exercise";
+
+// @ts-expect-error Geometry dimensions must be numbers.
+const invalidArea = Geometry.areaOfRectangle("wide", 2);
+void invalidArea;
+// @ts-expect-error Circle radius must be numeric.
+const invalidCircle = Geometry.areaOfCircle("wide");
+void invalidCircle;
+expectTypeOf(Geometry.areaOfRectangle).toEqualTypeOf<
+  (width: number, height: number) => number
+>();
+expectTypeOf(Geometry.areaOfCircle).toEqualTypeOf<(radius: number) => number>();
 
 describe("Geometry namespace", () => {
   it("exports rectangle area", () =>

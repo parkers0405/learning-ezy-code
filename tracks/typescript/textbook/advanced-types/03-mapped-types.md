@@ -1,12 +1,12 @@
 # Mapped Types
 
-## Objectives
+## Goal
 
 - Transform each property in a key union.
 - Add or remove `readonly` and optional modifiers.
 - Remap keys with an `as` clause.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 A mapped type iterates over keys at compile time and constructs a new object type.
 
@@ -43,7 +43,19 @@ Mapped types derive tables of handlers, visitation state, and configuration from
 2. What does `-?` do?
 3. Must runtime transformation be implemented separately?
 
-## References
+## Prerequisite recap
+
+`keyof` creates property-name unions and indexed access retrieves corresponding property types.
+
+## Terms introduced
+
+A **mapped type** iterates over a union of property keys to build a new object type. A **mapping modifier** adds or removes `readonly` or optional status.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html)
 - [TypeScript Handbook: Key Remapping](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as)

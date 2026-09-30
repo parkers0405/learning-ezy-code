@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-logical-nullish",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run logical-operators-and-nullish-values --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test logical-operators-and-nullish-values --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck logical-operators-and-nullish-values --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit logical-operators-and-nullish-values --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution logical-operators-and-nullish-values --language typescript"
+  }
+}

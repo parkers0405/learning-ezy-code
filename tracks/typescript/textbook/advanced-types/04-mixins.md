@@ -1,12 +1,12 @@
 # Mixins
 
-## Objectives
+## Goal
 
 - Compose class behavior with constructor functions.
 - Preserve base instances and added members in types.
 - Recognize conflicts and lifecycle costs.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 JavaScript classes have single inheritance. A mixin is a function that accepts a base constructor and returns a subclass with added behavior.
 
@@ -31,6 +31,8 @@ Use mixins for orthogonal behavior shared across class families. Prefer ordinary
 
 The unavoidable `any[]` in a broad constructor helper is a narrow infrastructure escape hatch, not permission to spread `any` through domain code.
 
+In the visible test, `.not` negates the following matcher. `expect(value).not.toBeInstanceOf(Logger)` therefore requires the value not to inherit from `Logger`; copying one method does not create that inheritance relationship.
+
 ## Common mistakes
 
 - Defining two mixins with colliding member names.
@@ -48,7 +50,19 @@ Mixins can add instrumentation or identity to data-structure classes without cha
 2. Why retain the base constructor type?
 3. When is composition clearer?
 
-## References
+## Prerequisite recap
+
+Classes, inheritance, generic constraints, and constructor signatures are all used by the mixin pattern.
+
+## Terms introduced
+
+A **mixin** adds behavior by accepting a constructor and returning a subclass constructor. **Composition** instead delegates to a separate held value or function.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Mixins](https://www.typescriptlang.org/docs/handbook/mixins.html)
 - [MDN: Class expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class)

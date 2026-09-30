@@ -4,6 +4,8 @@
 
 Work in manifest order and do not reveal a solution until you have a passing attempt or can explain where you are stuck. Type the examples rather than pasting them. Before starting algorithms, revisit operators, strings, conditionals, arrays, loops, objects, Map/Set, generics, unions, tuples, and type guards. Use titles or stable IDs rather than relying on chapter numbers that may change in a future edition.
 
+The current edition contains 51 chapters in a 27/16/8 structure. Its focused foundations are a launch point, not a claim to cover every JavaScript API or data structure.
+
 ## 2. Fill JavaScript/TypeScript foundations gaps
 
 The TypeScript track now covers closures, object identity, and basic error handling, but it does not deeply cover asynchronous programming, iterators, recursion, runtime complexity, or standard data-structure implementations. Build two small strict-TypeScript programs and test them: a command-line task list and a text-frequency analyzer. Practice `Map`, `Set`, stacks, queues, recursion, sorting, and binary search.

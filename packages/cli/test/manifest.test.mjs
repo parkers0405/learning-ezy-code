@@ -10,8 +10,101 @@ import {
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { getAdapter } from "../adapters/index.mjs";
 import { loadCatalog } from "../manifest.mjs";
+
+test("the real curriculum has prerequisite-safe 27/16/8 sections", async () => {
+  const root = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../../..",
+  );
+  const catalog = await loadCatalog(root);
+  const language = catalog.languages.find(({ id }) => id === "typescript");
+  assert.ok(language);
+
+  const counts = Object.fromEntries(
+    [
+      "javascript-foundations",
+      "typescript-foundations",
+      "advanced-typescript",
+    ].map((sectionId) => [
+      sectionId,
+      language.chapters.filter((chapter) => chapter.sectionId === sectionId)
+        .length,
+    ]),
+  );
+  assert.deepEqual(counts, {
+    "javascript-foundations": 27,
+    "typescript-foundations": 16,
+    "advanced-typescript": 8,
+  });
+  assert.equal(language.chapters.length, 51);
+  assert.equal(
+    language.chapters.filter(({ legacySlug }) => legacySlug).length,
+    29,
+  );
+  assert.deepEqual(
+    language.chapters
+      .filter(({ sectionId }) => sectionId === "typescript-foundations")
+      .map(({ id }) => id),
+    [
+      "ts-annotations-inference",
+      "ts-composite-types",
+      "ts-unions-intersections",
+      "ts-guards",
+      "ts-aliases",
+      "ts-interfaces",
+      "ts-literal-types",
+      "ts-tuples",
+      "ts-type-assertions",
+      "ts-keyof-typeof",
+      "ts-generics",
+      "ts-index-types",
+      "ts-enum",
+      "ts-classes",
+      "ts-inheritance",
+      "ts-abstract-classes",
+    ],
+  );
+});
+
+test("every exercise README separates observable contracts from specific practice", async () => {
+  const root = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../../..",
+  );
+  const catalog = await loadCatalog(root);
+  const language = catalog.languages.find(({ id }) => id === "typescript");
+  assert.ok(language);
+  assert.equal(language.chapters.length, 51);
+
+  const retiredDisclaimer =
+    "Follow the chapter’s requested technique as deliberate practice";
+  for (const chapter of language.chapters) {
+    const readme = await readFile(
+      path.join(chapter.absolutePath, "README.md"),
+      "utf8",
+    );
+    assert.doesNotMatch(readme, new RegExp(retiredDisclaimer), chapter.id);
+    const behavioralHeadings = readme.match(/^## Behavioral contract$/gm) ?? [];
+    const practiceHeadings = readme.match(/^## Practice instruction$/gm) ?? [];
+    assert.equal(behavioralHeadings.length, 1, chapter.id);
+    assert.equal(practiceHeadings.length, 1, chapter.id);
+    const behavioralStart = readme.indexOf("## Behavioral contract");
+    const practiceStart = readme.indexOf("## Practice instruction");
+    assert.ok(behavioralStart < practiceStart, chapter.id);
+    const behavioral = readme
+      .slice(behavioralStart + "## Behavioral contract".length, practiceStart)
+      .trim();
+    const practice = readme
+      .slice(practiceStart + "## Practice instruction".length)
+      .split(/^## /m, 1)[0]
+      .trim();
+    assert.ok(behavioral === "None" || behavioral.length > 0, chapter.id);
+    assert.ok(practice === "None" || practice.length > 0, chapter.id);
+  }
+});
 
 test("manifest adapter names cannot become arbitrary commands", () => {
   assert.throws(() => getAdapter("../../bin/sh"), /No trusted runner adapter/);

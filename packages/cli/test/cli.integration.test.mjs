@@ -1,10 +1,20 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, readlink, rm, stat } from "node:fs/promises";
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  readlink,
+  rm,
+  stat,
+  writeFile,
+} from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { getAdapter } from "../adapters/index.mjs";
+import { loadCatalog } from "../manifest.mjs";
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -12,13 +22,23 @@ const root = path.resolve(
 );
 const cli = path.join(root, "packages", "cli", "cli.mjs");
 const launcher = path.join(root, "ezy");
-const stateFile = path.join(root, ".learn-code", "state.json");
+let stateDirectory;
+let stateFile;
+
+test.before(async () => {
+  stateDirectory = await mkdtemp(path.join(os.tmpdir(), "ezy-cli-state-"));
+  stateFile = path.join(stateDirectory, "state.json");
+});
+
+test.after(async () => {
+  await rm(stateDirectory, { recursive: true, force: true });
+});
 
 function execute(command, args) {
   return new Promise((resolve) => {
     const child = spawn(command, args, {
       cwd: root,
-      env: process.env,
+      env: { ...process.env, EZY_STATE_FILE: stateFile },
       stdio: ["ignore", "pipe", "pipe"],
     });
     let output = "";
@@ -61,6 +81,137 @@ test("explicit chapter typos fail before test or submission and preserve state",
     );
     assert.deepEqual(await stateSnapshot(), before);
   }
+});
+
+function progressState({ selectedChapter, completions = {} }) {
+  return {
+    version: 2,
+    activeLanguage: "typescript",
+    tracks: { typescript: { selectedChapter, completions } },
+  };
+}
+
+async function setProgress(value) {
+  await mkdir(path.dirname(stateFile), { recursive: true });
+  await writeFile(stateFile, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+test("default commands return a moved saved ID to a stale earlier frontier", async () => {
+  const stale = progressState({
+    selectedChapter: "js-values-variables-primitives",
+    completions: {
+      "js-introduction": {
+        submittedAt: "2025-01-01T00:00:00.000Z",
+        fingerprint: "stale-after-insertion",
+      },
+    },
+  });
+  for (const command of [
+    "start",
+    "path",
+    "read",
+    "test",
+    "submit",
+    "solution",
+  ]) {
+    await setProgress(stale);
+    const result = await execute(process.execPath, [
+      cli,
+      command,
+      "--language",
+      "typescript",
+    ]);
+    assert.equal(result.code, 0, `${command}: ${result.output}`);
+    const state = JSON.parse(await readFile(stateFile, "utf8"));
+    assert.equal(
+      state.tracks.typescript.selectedChapter,
+      command === "submit" ? "js-runtime-checker" : "js-introduction",
+      command,
+    );
+  }
+});
+
+test("a moved saved ID normalizes to an inserted incomplete frontier", async () => {
+  const catalog = await loadCatalog(root);
+  const language = catalog.languages.find(({ id }) => id === "typescript");
+  const adapter = getAdapter(language.adapter);
+  const first = language.chapters[0];
+  await adapter.validateChapter({ root, language, chapter: first });
+  const firstFingerprint = await adapter.fingerprintChapter({
+    root,
+    language,
+    chapter: first,
+  });
+  await setProgress(
+    progressState({
+      selectedChapter: "js-values-variables-primitives",
+      completions: {
+        "js-introduction": {
+          submittedAt: "2025-01-01T00:00:00.000Z",
+          fingerprint: firstFingerprint,
+        },
+      },
+    }),
+  );
+  const result = await execute(process.execPath, [
+    cli,
+    "path",
+    "--language",
+    "typescript",
+  ]);
+  assert.equal(result.code, 0, result.output);
+  assert.match(result.output, /02-runtime-and-checker/);
+  const state = JSON.parse(await readFile(stateFile, "utf8"));
+  assert.equal(state.tracks.typescript.selectedChapter, "js-runtime-checker");
+});
+
+test("every explicit locked-target command preserves isolated progress", async () => {
+  const lockedState = progressState({
+    selectedChapter: "js-values-variables-primitives",
+  });
+  for (const command of [
+    "start",
+    "path",
+    "read",
+    "test",
+    "submit",
+    "solution",
+  ]) {
+    await setProgress(lockedState);
+    const before = await stateSnapshot();
+    const locked = await execute(process.execPath, [
+      cli,
+      command,
+      "4",
+      "--language",
+      "typescript",
+    ]);
+    assert.notEqual(locked.code, 0, `${command} unexpectedly succeeded`);
+    assert.match(locked.output, /4\..+locked/i, command);
+    assert.match(locked.output, /Current chapter: 1\./, command);
+    assert.deepEqual(await stateSnapshot(), before, command);
+    const state = JSON.parse(before.contents);
+    assert.deepEqual(state.tracks.typescript.completions, {}, command);
+  }
+
+  await setProgress(lockedState);
+
+  const started = await execute(process.execPath, [
+    cli,
+    "start",
+    "--language",
+    "typescript",
+  ]);
+  assert.equal(started.code, 0, started.output);
+  const selectedPath = await execute(process.execPath, [
+    cli,
+    "path",
+    "--absolute",
+    "--language",
+    "typescript",
+  ]);
+  assert.equal(selectedPath.code, 0, selectedPath.output);
+  assert.match(selectedPath.output, /01-introduction/);
 });
 
 test("the root chapter script forwards the chapter subcommand", async () => {

@@ -467,16 +467,22 @@ async function readCurrent(file, catalog) {
   }
 }
 
-export async function transactState({ root, catalog, mutate, lockOptions }) {
-  const file = path.join(root, ".learn-code", "state.json");
-  const lockFile = path.join(root, ".learn-code", "state.lock");
+export async function transactState({
+  root,
+  catalog,
+  mutate,
+  lockOptions,
+  stateFile,
+}) {
+  const file = stateFile ?? path.join(root, ".learn-code", "state.json");
+  const lockFile = path.join(path.dirname(file), "state.lock");
   const lock = await acquireLock(lockFile, lockOptions);
   try {
     const current = await readCurrent(file, catalog);
     const warnings = current.warning ? [current.warning] : [];
     let state = current.state;
     let migrated = false;
-    if (!current.exists) {
+    if (!current.exists && !stateFile) {
       const legacy = await readLegacy(root, catalog);
       warnings.push(...legacy.diagnostics);
       if (legacy.present) {
@@ -510,10 +516,13 @@ export async function transactState({ root, catalog, mutate, lockOptions }) {
   }
 }
 
-export async function loadState({ root, catalog }) {
-  const file = path.join(root, ".learn-code", "state.json");
+export async function loadState({ root, catalog, stateFile }) {
+  const file = stateFile ?? path.join(root, ".learn-code", "state.json");
   const current = await readCurrent(file, catalog);
   if (current.exists) return { ...current, file };
+  // An injected state path is an isolated store. Legacy files under the course
+  // root belong to the default store and must never leak into it.
+  if (stateFile) return { ...current, file };
   const legacy = await readLegacy(root, catalog);
   if (!legacy.present) {
     return {
@@ -523,7 +532,12 @@ export async function loadState({ root, catalog }) {
       file,
     };
   }
-  return transactState({ root, catalog, mutate: async (state) => ({ state }) });
+  return transactState({
+    root,
+    catalog,
+    stateFile,
+    mutate: async (state) => ({ state }),
+  });
 }
 
 export function trackState(state, languageId) {

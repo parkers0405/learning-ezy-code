@@ -12,7 +12,7 @@ For every linked topic, the upstream Markdown's lesson, exercise prompt, tutoria
 
 ## Published-site audit
 
-A Firecrawl map of `https://www.learn-ts.org/en/` supplied during project creation confirmed **Welcome plus exactly 29 currently navigated topics: 11 Basics and 18 Advanced**. Those topics all remain represented, but the local pedagogical order is now defined by `tracks/typescript/track.json` and adds three original JavaScript-foundation topics.
+A Firecrawl map of `https://www.learn-ts.org/en/` supplied during project creation confirmed **Welcome plus exactly 29 currently navigated topics: 11 Basics and 18 Advanced**. Those topics all remain represented exactly once. The local pedagogical order is defined by `tracks/typescript/track.json` and adds 22 original prerequisite bridges or focused splits.
 
 The map also exposed stale/orphan duplicate URLs that are not linked by current navigation: `Type Guards2`, `Mapped Types2`, `Enums`, `Enums2`, `Type Assertions2`, `Generics2`, `Generics3`, `Decorators2`, `Decorators3`, `Index Types2`, `Type Aliases2`, `Unions and Intersections2`, and `Utility Types2`. Matching Markdown files were inventoried but are deliberately **not** curriculum workspaces. No correction in this edition was sourced solely from those orphan drafts.
 
@@ -24,8 +24,8 @@ The map also exposed stale/orphan duplicate URLs that are not linked by current 
 | Basics topics          |                   11 |    11 workspaces |
 | Advanced topics        |                   18 |    18 workspaces |
 | Canonical topic total  |                   29 |    29 workspaces |
-| Original local topics  |                    0 |     3 workspaces |
-| Current track total    |                   29 |    32 workspaces |
+| Original local topics  |                    0 |    22 workspaces |
+| Current track total    |                   29 |    51 workspaces |
 | Stale duplicate topics |                   13 |     0 workspaces |
 
 Result: **complete parity with current navigation, with no stale duplicates promoted into the curriculum.**
@@ -66,4 +66,4 @@ The `legacySlug` fields in `track.json` are the machine-readable migration autho
 | Decorators                    | `ts-decorators`                  |
 | Utility Types                 | `ts-utility-types`               |
 
-`js-strings-template-literals`, `js-objects-destructuring`, and `js-map-set` are original additions and therefore have no `legacySlug`.
+The 22 chapters without `legacySlug` are original additions: 16 focused JavaScript prerequisite chapters, the existing three JavaScript additions (`js-strings-template-literals`, `js-objects-destructuring`, `js-map-set`), and three TypeScript bridges (`ts-annotations-inference`, `ts-composite-types`, `ts-inheritance`). Every migrated chapter above retains exactly one legacy mapping.

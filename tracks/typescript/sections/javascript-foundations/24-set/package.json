@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-set",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run set --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test set --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck set --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit set --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution set --language typescript"
+  }
+}

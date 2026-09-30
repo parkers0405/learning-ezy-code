@@ -1,16 +1,9 @@
-# Exercise: Runtime and Compile-Time Introduction
+# Your first edit, test, and submit
 
-**Prerequisites:** Node.js, Corepack, and the repository install described in [Start Here](../../../START-HERE.md).
+## Behavioral contract
 
-**Required reading:** [Runtime and Compile-Time Introduction](../../../textbook/javascript-foundations/01-introduction.md)
+`message` must contain the exact string `"Hello World"`.
 
-## Contract
+## Practice instruction
 
-Change the exported `message` in `starter.ts` to the exact string `Hello World`. The supplied `export` lets the test read your value; modules are taught formally later. The visible test contains one focused runtime assertion.
-
-## Commands
-
-- `corepack yarn test` — type-check and run the visible tests.
-- `corepack yarn typecheck` — run strict checking only.
-- `corepack yarn submit` — test and record completion.
-- `corepack yarn solution` — print the reference solution.
+Open `starter.ts` in your editor and confirm the supplied line. Run `ezy read`, `ezy test`, `ezy submit`, and `ezy status` in the terminal. Do not edit the visible test or `.solution`.

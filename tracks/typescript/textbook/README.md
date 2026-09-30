@@ -1,38 +1,57 @@
 # TypeScript: Runtime to Type System
 
-This is the canonical, offline textbook for the TypeScript track. Read it in order to build from JavaScript runtime behavior to advanced static types. Exercises link back here; exercise contracts are deliberately kept in the exercise directories rather than duplicated in this book.
+This canonical offline textbook follows the manifest exactly. See the [glossary](GLOSSARY.md) for first-teaching links and [diagnostics guide](DIAGNOSTICS.md) when a check fails.
 
-## Part 0 — JavaScript Foundations
+## Part 0 — JavaScript Foundations (27)
 
-1. [Runtime and Compile-Time Introduction](javascript-foundations/01-introduction.md)
-2. [Values, Variables, and Primitive Types](javascript-foundations/02-values-variables-and-primitives.md)
-3. [Operators and Expressions](javascript-foundations/03-operators-and-expressions.md)
-4. [Strings and Template Literals](javascript-foundations/04-strings-and-template-literals.md)
-5. [Conditionals, Comparisons, and Truthiness](javascript-foundations/05-conditionals-comparisons-and-truthiness.md)
-6. [Functions, Defaults, Scope, and Returns](javascript-foundations/06-functions-scope-and-returns.md)
-7. [Arrays and Common Operations](javascript-foundations/07-arrays-and-array-operations.md)
-8. [Loops and Iteration](javascript-foundations/08-loops-and-iteration.md)
-9. [Objects, Properties, and Destructuring](javascript-foundations/09-objects-properties-and-destructuring.md)
-10. [Map and Set](javascript-foundations/10-map-and-set.md)
-11. [Modules and Basic Error Handling](javascript-foundations/11-modules-and-errors.md)
+1. [Your First Edit, Test, and Submit](javascript-foundations/01-introduction.md)
+2. [Runtime, Checker, and Failures](javascript-foundations/02-runtime-and-checker.md)
+3. [Reading Tests and Supplied Scaffolding](javascript-foundations/03-reading-tests-and-scaffolding.md)
+4. [Values, Primitive Kinds, and Literals](javascript-foundations/04-values-primitives-and-literals.md)
+5. [Declarations and Initialization](javascript-foundations/05-declarations-and-initialization.md)
+6. [Assignment and Reassignment](javascript-foundations/06-assignment-and-reassignment.md)
+7. [Expressions and Statements](javascript-foundations/07-expressions-and-statements.md)
+8. [Arithmetic and Precedence](javascript-foundations/08-arithmetic-and-precedence.md)
+9. [String Basics](javascript-foundations/09-string-basics.md)
+10. [Template Literals](javascript-foundations/10-template-literals.md)
+11. [Booleans and Comparisons](javascript-foundations/11-booleans-and-comparisons.md)
+12. [Logical Operators and Nullish Values](javascript-foundations/12-logical-and-nullish.md)
+13. [Conditionals and Truthiness](javascript-foundations/13-conditionals-and-truthiness.md)
+14. [Function Basics](javascript-foundations/14-function-basics.md)
+15. [Scope and Default Parameters](javascript-foundations/15-scope-and-default-parameters.md)
+16. [Function Values and Arrows](javascript-foundations/16-function-values-and-arrows.md)
+17. [Callbacks](javascript-foundations/17-callbacks.md)
+18. [Closures](javascript-foundations/18-closures.md)
+19. [Arrays](javascript-foundations/19-arrays.md)
+20. [Loops](javascript-foundations/20-loops-and-iteration.md)
+21. [Array Transformations](javascript-foundations/21-array-transformations.md)
+22. [Object Basics](javascript-foundations/22-object-basics.md)
+23. [Destructuring and Spread](javascript-foundations/23-destructuring-and-spread.md)
+24. [Set](javascript-foundations/24-set.md)
+25. [Map and Frequency Tables](javascript-foundations/25-map-and-frequency-tables.md)
+26. [Modules](javascript-foundations/26-modules.md)
+27. [Errors and Exceptions](javascript-foundations/27-errors.md)
 
-## Part 1 — TypeScript Foundations
+## Part 1 — TypeScript Foundations (16)
 
-1. [Classes](typescript-foundations/01-classes.md)
-2. [Interfaces](typescript-foundations/02-interfaces.md)
-3. [Type Assertions](typescript-foundations/03-type-assertions.md)
-4. [keyof and typeof Operators](typescript-foundations/04-keyof-and-typeof.md)
-5. [Type Unions and Intersections](typescript-foundations/05-type-unions-and-intersections.md)
-6. [Enum Type](typescript-foundations/06-enum-type.md)
-7. [Generics](typescript-foundations/07-generics.md)
-8. [Index Types](typescript-foundations/08-index-types.md)
-9. [Literal Types](typescript-foundations/09-literal-types.md)
-10. [Tuple Types](typescript-foundations/10-tuple-types.md)
-11. [Type Aliases](typescript-foundations/11-type-aliases.md)
-12. [Type Guards](typescript-foundations/12-type-guards.md)
-13. [Abstract Classes](typescript-foundations/13-abstract-classes.md)
+1. [Annotations and Inference](typescript-foundations/01-annotations-and-inference.md)
+2. [Array, Object, and Function Types](typescript-foundations/02-array-object-and-function-types.md)
+3. [Unions, Nullability, and Intersections](typescript-foundations/03-unions-nullability-and-intersections.md)
+4. [Narrowing and Type Guards](typescript-foundations/04-narrowing-and-type-guards.md)
+5. [Type Aliases](typescript-foundations/05-type-aliases.md)
+6. [Interfaces](typescript-foundations/06-interfaces.md)
+7. [Literal Types](typescript-foundations/07-literal-types.md)
+8. [Tuples](typescript-foundations/08-tuple-types.md)
+9. [Type Assertions](typescript-foundations/09-type-assertions.md)
+10. [keyof and typeof](typescript-foundations/10-keyof-and-typeof.md)
+11. [Generics](typescript-foundations/11-generics.md)
+12. [Index Types](typescript-foundations/12-index-types.md)
+13. [Enums](typescript-foundations/13-enum-type.md)
+14. [Classes](typescript-foundations/14-classes.md)
+15. [Inheritance](typescript-foundations/15-inheritance.md)
+16. [Abstract Classes](typescript-foundations/16-abstract-classes.md)
 
-## Part 2 — Advanced TypeScript
+## Part 2 — Advanced TypeScript (8)
 
 1. [Conditional Types](advanced-types/01-conditional-types.md)
 2. [Discriminated Unions](advanced-types/02-discriminated-unions.md)
@@ -43,4 +62,4 @@ This is the canonical, offline textbook for the TypeScript track. Read it in ord
 7. [Decorators](advanced-types/07-decorators.md)
 8. [Utility Types](advanced-types/08-utility-types.md)
 
-The external links in each chapter are references for further study and attribution. They are not required to complete the offline course.
+External links are references and attribution, not an online completion requirement.

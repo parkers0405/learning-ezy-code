@@ -2,7 +2,7 @@
 
 **Learning Ezy Code** is an offline-first, IDE-first learning monorepo. The root selects a language track and orchestrates trusted track adapters; each track owns its textbook, exercise contracts, tests, and native toolchain integration. The project is maintained at [github.com/parkers0405/learning-ezy-code](https://github.com/parkers0405/learning-ezy-code).
 
-The fully implemented track is **TypeScript**: 32 sequential chapters from JavaScript runtime foundations through advanced TypeScript. Rust is intentionally not represented by placeholder lessons; [Adding a Language](ADDING_A_LANGUAGE.md) explains the concrete Cargo adapter path.
+The fully implemented track is **TypeScript**: 51 sequential chapters—27 JavaScript Foundations, 16 TypeScript Foundations, and 8 Advanced TypeScript—from a zero-prerequisite orientation through advanced static types. Rust is intentionally not represented by placeholder lessons; [Adding a Language](ADDING_A_LANGUAGE.md) explains the concrete Cargo adapter path.
 
 ## Start
 

@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-errors",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run errors-and-exceptions --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test errors-and-exceptions --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck errors-and-exceptions --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit errors-and-exceptions --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution errors-and-exceptions --language typescript"
+  }
+}

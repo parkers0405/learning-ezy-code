@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run assignment-and-reassignment --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test assignment-and-reassignment --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck assignment-and-reassignment --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit assignment-and-reassignment --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution assignment-and-reassignment --language typescript"
+  }
+}

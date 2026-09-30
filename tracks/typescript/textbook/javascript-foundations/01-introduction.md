@@ -1,48 +1,45 @@
-# Runtime and Compile-Time Introduction
+# Your First Edit, Test, and Submit
 
-## Objectives
+## Goal
 
-- Distinguish TypeScript checking from JavaScript execution.
-- Follow the edit, type-check, test, and submit loop.
-- Read a function signature as an input/output contract.
+Know where you are, which file to edit, and how to complete one learning loop.
 
-## Mental model
+## Prerequisite recap
 
-TypeScript is JavaScript plus a static type checker. The checker examines source code before it runs and reports operations it cannot prove safe. A tool then removes type syntax; a JavaScript runtime executes the result. Types can prevent many mistakes, but they do not validate network responses, user input, or other runtime data by themselves.
+None. This course starts from zero.
+
+## Terms introduced
+
+An **editor** changes files. A **terminal** runs text commands. `cd` means “change directory”; it changes the terminal's **current directory**, the folder a command acts in. A **file extension** is the ending after a dot: `.ts` identifies a TypeScript file and `.md` identifies a Markdown reading. This **repository** contains the course; a **track** is one language path; a **chapter** is one lesson.
+
+## Step-by-step mental model
+
+Open this repository in an editor. Open a terminal and `cd` to the repository. `./ezy start 1` selects the first chapter; installed shell integration can also enter its directory. `ezy read` opens the lesson, `ezy test` gives feedback, `ezy submit` records a pass, and `ezy status` shows progress. Commands belong in the terminal; TypeScript belongs in `.ts` files. Edit `starter.ts`, not `exercise.test.ts` or `.solution/solution.ts`.
+
+**Supplied syntax — recognize the line, but do not try to master it yet:**
 
 ```ts
-function double(value: number): number {
-  return value * 2;
-}
-
-double(4); // runtime result: 8
-// double("4"); // compile-time error
+export const message = "Hello World";
 ```
 
-The `number` annotations disappear from emitted JavaScript. Multiplication and function calls remain. This runtime/type-system boundary is the central model for the whole track.
-
-Type inference means annotations are not required everywhere. `const attempts = 3` is inferred as a number. Annotate public function boundaries when it makes a contract easier to understand; let clear local values be inferred.
-
-Early exercises include supplied `export` keywords and occasional parameter annotations so the test runner can reach learner code and strict checking can understand its inputs. Treat those pieces as scaffolding for now; modules and TypeScript's type syntax are explained in later chapters. Change only the behavior requested by each exercise contract.
+For now, read it as “make the greeting available to the course test.” `export`, `const`, the name, `=`, quotes, and the semicolon are decoded in later chapters.
 
 ## Common mistakes
 
-- Treating a successful type-check as proof that an algorithm is correct. Tests cover behavior that types do not.
-- Expecting TypeScript to exist at runtime. An annotation cannot inspect unknown data.
-- Editing tests to make an implementation pass. Tests are the contract; edit learner source instead.
-- Reading a diagnostic only from the top. Its file, line, expected type, and received type usually identify the mismatch.
+- Typing TypeScript into the terminal. - Running from an unrelated current directory. - Editing tests or solutions.
 
 ## DSA relevance
 
-Algorithm work alternates between static structure and dynamic behavior. Types describe inputs, outputs, nodes, and invariants; tests demonstrate boundary cases and complexity-sensitive behavior. Keeping those jobs separate makes debugging systematic.
+Every later algorithm uses this edit-test-debug loop.
 
 ## Self-check
 
-1. Which tool executes arithmetic: TypeScript or JavaScript?
-2. Does passing the checker prove the returned value is correct?
-3. Why can local inference be preferable to repeating obvious types?
+1. How do editor and terminal differ? 2. What is a current directory? 3. Which file may you edit? 4. What do the five `ezy` commands do?
 
-## References
+## Exercise preparation
 
-- [TypeScript Handbook: TypeScript for the New Programmer](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
-- [TypeScript Handbook: Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+Confirm the exact `Hello World` value, test, and submit. The test preserves existing learner work.
+
+## Authoritative references
+
+- [MDN: Getting started](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web)

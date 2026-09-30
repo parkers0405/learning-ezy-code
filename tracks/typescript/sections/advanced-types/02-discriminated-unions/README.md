@@ -1,17 +1,15 @@
-# Discriminated Unions
+# Discriminated unions
 
-**Prerequisites:** Complete preceding roadmap entries. **Required reading:** [Discriminated Unions](../../../textbook/advanced-types/02-discriminated-unions.md)
+**Required reading:** [Discriminated Unions](../../../textbook/advanced-types/02-discriminated-unions.md)
 
-Give each member of a union a shared property with a distinct literal value. Testing that discriminant narrows the whole object. A `switch` plus a `never` check can enforce exhaustive handling as the union grows.
+## Behavioral contract
 
-## Exercise
+Export `Circle`, `Square`, their `Shape` union, and `calculateArea(shape: Shape): number`. Tested circles and squares return their area, including zero sizes; an object whose discriminant and properties disagree is rejected.
 
-Calculate circle area with `Math.PI * radius ** 2` and square area with `sideLength ** 2`.
+## Practice instruction
 
-### Test contract
+Branch on `shape.kind` so TypeScript narrows the union, then calculate from the member-specific property. Use the supplied circle and square formulas rather than assertions.
 
-Export `Circle`, `Square`, `Shape`, and `calculateArea`. Tests exercise both discriminants and zero-sized shapes.
+## Attribution
 
 > Adapted from upstream `Discriminated Unions.md`; see the root `NOTICE`.
-
-Run `corepack yarn test`, `corepack yarn typecheck`, `corepack yarn submit`, or `corepack yarn solution` here.

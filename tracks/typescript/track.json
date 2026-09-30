@@ -33,55 +33,140 @@
         {
           "id": "js-introduction",
           "slug": "introduction",
-          "title": "Runtime and Compile-Time Introduction",
+          "title": "Your First Edit, Test, and Submit",
           "path": "sections/javascript-foundations/01-introduction",
+          "validationStarter": ".starter/starter.ts",
           "legacySlug": "introduction",
           "readings": ["js-introduction"]
         },
         {
+          "id": "js-runtime-checker",
+          "slug": "runtime-and-checker",
+          "title": "Runtime, Type Checker, and Failures",
+          "path": "sections/javascript-foundations/02-runtime-and-checker",
+          "readings": ["js-runtime-checker"]
+        },
+        {
+          "id": "js-tests-scaffolding",
+          "slug": "reading-tests-and-scaffolding",
+          "title": "Reading Tests and Supplied Scaffolding",
+          "path": "sections/javascript-foundations/03-reading-tests-and-scaffolding",
+          "readings": ["js-tests-scaffolding"]
+        },
+        {
           "id": "js-values-variables-primitives",
           "slug": "values-variables-and-primitives",
-          "title": "Values, Variables, and Primitive Types",
-          "path": "sections/javascript-foundations/02-values-variables-and-primitives",
+          "title": "Values, Primitive Kinds, and Literals",
+          "path": "sections/javascript-foundations/04-values-primitives-and-literals",
           "legacySlug": "variables-and-types",
           "readings": ["js-values-variables-primitives"]
         },
         {
+          "id": "js-declarations-initialization",
+          "slug": "declarations-and-initialization",
+          "title": "Names, Declarations, const, and let",
+          "path": "sections/javascript-foundations/05-declarations-and-initialization",
+          "readings": ["js-declarations-initialization"]
+        },
+        {
+          "id": "js-assignment-reassignment",
+          "slug": "assignment-and-reassignment",
+          "title": "Assignment and Reassignment",
+          "path": "sections/javascript-foundations/06-assignment-and-reassignment",
+          "readings": ["js-assignment-reassignment"]
+        },
+        {
+          "id": "js-expressions-statements",
+          "slug": "expressions-and-statements",
+          "title": "Expressions and Statements",
+          "path": "sections/javascript-foundations/07-expressions-and-statements",
+          "readings": ["js-expressions-statements"]
+        },
+        {
           "id": "js-operators-expressions",
           "slug": "operators-and-expressions",
-          "title": "Operators and Expressions",
-          "path": "sections/javascript-foundations/03-operators-and-expressions",
+          "title": "Arithmetic Operators and Precedence",
+          "path": "sections/javascript-foundations/08-arithmetic-and-precedence",
           "legacySlug": "operators",
           "readings": ["js-operators-expressions"]
         },
         {
+          "id": "js-string-basics",
+          "slug": "string-basics",
+          "title": "Strings, Concatenation, Properties, and Methods",
+          "path": "sections/javascript-foundations/09-string-basics",
+          "readings": ["js-string-basics"]
+        },
+        {
           "id": "js-strings-template-literals",
           "slug": "strings-and-template-literals",
-          "title": "Strings and Template Literals",
-          "path": "sections/javascript-foundations/04-strings-and-template-literals",
+          "title": "Template Literals and Interpolation",
+          "path": "sections/javascript-foundations/10-template-literals",
           "readings": ["js-strings-template-literals"]
+        },
+        {
+          "id": "js-booleans-comparisons",
+          "slug": "booleans-and-comparisons",
+          "title": "Booleans and Comparisons",
+          "path": "sections/javascript-foundations/11-booleans-and-comparisons",
+          "readings": ["js-booleans-comparisons"]
+        },
+        {
+          "id": "js-logical-nullish",
+          "slug": "logical-operators-and-nullish-values",
+          "title": "Logical Operators and Nullish Values",
+          "path": "sections/javascript-foundations/12-logical-operators-and-nullish-values",
+          "readings": ["js-logical-nullish"]
         },
         {
           "id": "js-conditionals-truthiness",
           "slug": "conditionals-comparisons-and-truthiness",
-          "title": "Conditionals, Comparisons, and Truthiness",
-          "path": "sections/javascript-foundations/05-conditionals-comparisons-and-truthiness",
+          "title": "Conditional Control Flow and Truthiness",
+          "path": "sections/javascript-foundations/13-conditionals-and-truthiness",
           "legacySlug": "truthy-and-falsy",
           "readings": ["js-conditionals-truthiness"]
         },
         {
+          "id": "js-function-basics",
+          "slug": "function-basics",
+          "title": "Function Declarations, Calls, and Returns",
+          "path": "sections/javascript-foundations/14-function-basics",
+          "readings": ["js-function-basics"]
+        },
+        {
           "id": "js-functions-scope-returns",
           "slug": "functions-scope-and-returns",
-          "title": "Functions, Defaults, Scope, and Returns",
-          "path": "sections/javascript-foundations/06-functions-scope-and-returns",
+          "title": "Scope and Default Parameters",
+          "path": "sections/javascript-foundations/15-scope-and-default-parameters",
           "legacySlug": "functions",
           "readings": ["js-functions-scope-returns"]
         },
         {
+          "id": "js-function-values-arrows",
+          "slug": "function-values-and-arrows",
+          "title": "Function Values and Arrow Syntax",
+          "path": "sections/javascript-foundations/16-function-values-and-arrows",
+          "readings": ["js-function-values-arrows"]
+        },
+        {
+          "id": "js-callbacks",
+          "slug": "callbacks",
+          "title": "Callbacks",
+          "path": "sections/javascript-foundations/17-callbacks",
+          "readings": ["js-callbacks"]
+        },
+        {
+          "id": "js-closures",
+          "slug": "closures",
+          "title": "Closures",
+          "path": "sections/javascript-foundations/18-closures",
+          "readings": ["js-closures"]
+        },
+        {
           "id": "js-arrays-operations",
           "slug": "arrays-and-array-operations",
-          "title": "Arrays and Common Operations",
-          "path": "sections/javascript-foundations/07-arrays-and-array-operations",
+          "title": "Arrays",
+          "path": "sections/javascript-foundations/19-arrays",
           "legacySlug": "arrays",
           "readings": ["js-arrays-operations"]
         },
@@ -89,31 +174,59 @@
           "id": "js-loops-iteration",
           "slug": "loops-and-iteration",
           "title": "Loops and Iteration",
-          "path": "sections/javascript-foundations/08-loops-and-iteration",
+          "path": "sections/javascript-foundations/20-loops-and-iteration",
           "legacySlug": "loops",
           "readings": ["js-loops-iteration"]
         },
         {
+          "id": "js-array-transformations",
+          "slug": "array-transformations",
+          "title": "Array Transformations with map, filter, and find",
+          "path": "sections/javascript-foundations/21-array-transformations",
+          "readings": ["js-array-transformations"]
+        },
+        {
+          "id": "js-object-basics",
+          "slug": "object-basics",
+          "title": "Object Properties, Identity, and Mutation",
+          "path": "sections/javascript-foundations/22-object-basics",
+          "readings": ["js-object-basics"]
+        },
+        {
           "id": "js-objects-destructuring",
           "slug": "objects-properties-and-destructuring",
-          "title": "Objects, Properties, and Destructuring",
-          "path": "sections/javascript-foundations/09-objects-properties-and-destructuring",
+          "title": "Destructuring, Spread, and Shallow Copies",
+          "path": "sections/javascript-foundations/23-destructuring-and-spread",
           "readings": ["js-objects-destructuring"]
+        },
+        {
+          "id": "js-set",
+          "slug": "set",
+          "title": "Set and Unique Values",
+          "path": "sections/javascript-foundations/24-set",
+          "readings": ["js-set"]
         },
         {
           "id": "js-map-set",
           "slug": "map-and-set",
-          "title": "Map and Set",
-          "path": "sections/javascript-foundations/10-map-and-set",
+          "title": "Map and Frequency Tables",
+          "path": "sections/javascript-foundations/25-map-and-frequency-tables",
           "readings": ["js-map-set"]
         },
         {
           "id": "js-modules-errors",
           "slug": "modules-and-errors",
-          "title": "Modules and Basic Error Handling",
-          "path": "sections/javascript-foundations/11-modules-and-errors",
+          "title": "Modules, Imports, Exports, and File Scope",
+          "path": "sections/javascript-foundations/26-modules",
           "legacySlug": "modules",
           "readings": ["js-modules-errors"]
+        },
+        {
+          "id": "js-errors",
+          "slug": "errors-and-exceptions",
+          "title": "Absence, Errors, throw, catch, and finally",
+          "path": "sections/javascript-foundations/27-errors-and-exceptions",
+          "readings": ["js-errors"]
         }
       ]
     },
@@ -123,74 +236,56 @@
       "description": "Type modeling, narrowing, reusable APIs, and object-oriented building blocks.",
       "chapters": [
         {
-          "id": "ts-classes",
-          "slug": "classes",
-          "title": "Classes",
-          "path": "sections/typescript-foundations/01-classes",
-          "legacySlug": "classes",
-          "readings": ["ts-classes"]
+          "id": "ts-annotations-inference",
+          "slug": "annotations-and-inference",
+          "title": "Annotations and Inference",
+          "path": "sections/typescript-foundations/01-annotations-and-inference",
+          "readings": ["ts-annotations-inference"]
+        },
+        {
+          "id": "ts-composite-types",
+          "slug": "array-object-and-function-types",
+          "title": "Array, Object, and Function Types",
+          "path": "sections/typescript-foundations/02-array-object-and-function-types",
+          "readings": ["ts-composite-types"]
+        },
+        {
+          "id": "ts-unions-intersections",
+          "slug": "type-unions-and-intersections",
+          "title": "Unions, Nullability, and Intersections",
+          "path": "sections/typescript-foundations/03-unions-nullability-and-intersections",
+          "legacySlug": "type-unions-and-intersections",
+          "readings": ["ts-unions-intersections"]
+        },
+        {
+          "id": "ts-guards",
+          "slug": "type-guards",
+          "title": "Narrowing and Type Guards",
+          "path": "sections/typescript-foundations/04-narrowing-and-type-guards",
+          "legacySlug": "type-guards",
+          "readings": ["ts-guards"]
+        },
+        {
+          "id": "ts-aliases",
+          "slug": "type-aliases",
+          "title": "Type Aliases",
+          "path": "sections/typescript-foundations/05-type-aliases",
+          "legacySlug": "type-aliases",
+          "readings": ["ts-aliases"]
         },
         {
           "id": "ts-interfaces",
           "slug": "interfaces",
           "title": "Interfaces",
-          "path": "sections/typescript-foundations/02-interfaces",
+          "path": "sections/typescript-foundations/06-interfaces",
           "legacySlug": "interfaces",
           "readings": ["ts-interfaces"]
-        },
-        {
-          "id": "ts-type-assertions",
-          "slug": "type-assertions",
-          "title": "Type Assertions",
-          "path": "sections/typescript-foundations/03-type-assertions",
-          "legacySlug": "type-assertions",
-          "readings": ["ts-type-assertions"]
-        },
-        {
-          "id": "ts-keyof-typeof",
-          "slug": "keyof-and-typeof",
-          "title": "keyof and typeof Operators",
-          "path": "sections/typescript-foundations/04-keyof-and-typeof",
-          "legacySlug": "keyof-and-typeof",
-          "readings": ["ts-keyof-typeof"]
-        },
-        {
-          "id": "ts-unions-intersections",
-          "slug": "type-unions-and-intersections",
-          "title": "Type Unions and Intersections",
-          "path": "sections/typescript-foundations/05-type-unions-and-intersections",
-          "legacySlug": "type-unions-and-intersections",
-          "readings": ["ts-unions-intersections"]
-        },
-        {
-          "id": "ts-enum",
-          "slug": "enum-type",
-          "title": "Enum Type",
-          "path": "sections/typescript-foundations/06-enum-type",
-          "legacySlug": "enum-type",
-          "readings": ["ts-enum"]
-        },
-        {
-          "id": "ts-generics",
-          "slug": "generics",
-          "title": "Generics",
-          "path": "sections/typescript-foundations/07-generics",
-          "legacySlug": "generics",
-          "readings": ["ts-generics"]
-        },
-        {
-          "id": "ts-index-types",
-          "slug": "index-types",
-          "title": "Index Types",
-          "path": "sections/typescript-foundations/08-index-types",
-          "legacySlug": "index-types",
-          "readings": ["ts-index-types"]
         },
         {
           "id": "ts-literal-types",
           "slug": "literal-types",
           "title": "Literal Types",
-          "path": "sections/typescript-foundations/09-literal-types",
+          "path": "sections/typescript-foundations/07-literal-types",
           "legacySlug": "literal-types",
           "readings": ["ts-literal-types"]
         },
@@ -198,31 +293,70 @@
           "id": "ts-tuples",
           "slug": "tuple-types",
           "title": "Tuple Types",
-          "path": "sections/typescript-foundations/10-tuple-types",
+          "path": "sections/typescript-foundations/08-tuple-types",
           "legacySlug": "tuple-types",
           "readings": ["ts-tuples"]
         },
         {
-          "id": "ts-aliases",
-          "slug": "type-aliases",
-          "title": "Type Aliases",
-          "path": "sections/typescript-foundations/11-type-aliases",
-          "legacySlug": "type-aliases",
-          "readings": ["ts-aliases"]
+          "id": "ts-type-assertions",
+          "slug": "type-assertions",
+          "title": "Type Assertions",
+          "path": "sections/typescript-foundations/09-type-assertions",
+          "legacySlug": "type-assertions",
+          "readings": ["ts-type-assertions"]
         },
         {
-          "id": "ts-guards",
-          "slug": "type-guards",
-          "title": "Type Guards",
-          "path": "sections/typescript-foundations/12-type-guards",
-          "legacySlug": "type-guards",
-          "readings": ["ts-guards"]
+          "id": "ts-keyof-typeof",
+          "slug": "keyof-and-typeof",
+          "title": "keyof and typeof Operators",
+          "path": "sections/typescript-foundations/10-keyof-and-typeof",
+          "legacySlug": "keyof-and-typeof",
+          "readings": ["ts-keyof-typeof"]
+        },
+        {
+          "id": "ts-generics",
+          "slug": "generics",
+          "title": "Generics",
+          "path": "sections/typescript-foundations/11-generics",
+          "legacySlug": "generics",
+          "readings": ["ts-generics"]
+        },
+        {
+          "id": "ts-index-types",
+          "slug": "index-types",
+          "title": "Index Types",
+          "path": "sections/typescript-foundations/12-index-types",
+          "legacySlug": "index-types",
+          "readings": ["ts-index-types"]
+        },
+        {
+          "id": "ts-enum",
+          "slug": "enum-type",
+          "title": "Enum Type",
+          "path": "sections/typescript-foundations/13-enum-type",
+          "legacySlug": "enum-type",
+          "readings": ["ts-enum"]
+        },
+        {
+          "id": "ts-classes",
+          "slug": "classes",
+          "title": "Classes, Constructors, Fields, Methods, and this",
+          "path": "sections/typescript-foundations/14-classes",
+          "legacySlug": "classes",
+          "readings": ["ts-classes"]
+        },
+        {
+          "id": "ts-inheritance",
+          "slug": "inheritance",
+          "title": "Inheritance, super, and override",
+          "path": "sections/typescript-foundations/15-inheritance",
+          "readings": ["ts-inheritance"]
         },
         {
           "id": "ts-abstract-classes",
           "slug": "abstract-classes",
           "title": "Abstract Classes",
-          "path": "sections/typescript-foundations/13-abstract-classes",
+          "path": "sections/typescript-foundations/16-abstract-classes",
           "legacySlug": "abstract-classes",
           "readings": ["ts-abstract-classes"]
         }

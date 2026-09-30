@@ -1,12 +1,12 @@
 # Decorators
 
-## Objectives
+## Goal
 
 - Recognize the decorator syntax used by this track.
 - Describe evaluation versus application order.
 - Keep runtime wrapping behavior type-correct.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 This curriculum exercises TypeScript's legacy experimental decorators because the migrated source uses that model and enables `experimentalDecorators`. A method decorator receives the prototype, member name, and property descriptor and may inspect or replace behavior.
 
@@ -45,7 +45,19 @@ Decorators can instrument calls or timing, but direct wrappers are often easier 
 2. What behavior must a method wrapper preserve?
 3. When is decorator code executed?
 
-## References
+## Prerequisite recap
+
+Classes create runtime constructors and methods; functions can receive and return values, including constructors.
+
+## Terms introduced
+
+A **decorator** is a function applied by decorator syntax to a supported declaration. **Metadata** is descriptive information attached for tools or runtime frameworks.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Decorators (legacy experimental model)](https://www.typescriptlang.org/docs/handbook/decorators.html)
 - [TypeScript TSConfig: experimentalDecorators](https://www.typescriptlang.org/tsconfig/experimentalDecorators.html)

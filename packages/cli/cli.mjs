@@ -16,9 +16,12 @@ import {
 import { loadState, trackState, transactState } from "./state.mjs";
 
 const root = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "../..",
+  process.env.EZY_ROOT ??
+    path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.."),
 );
+const stateFile = process.env.EZY_STATE_FILE
+  ? path.resolve(process.env.EZY_STATE_FILE)
+  : undefined;
 
 function fail(message) {
   console.error(message);
@@ -46,23 +49,21 @@ async function fingerprints(language, adapter) {
   );
 }
 
-function chooseChapter(language, state, requested) {
-  const saved = trackState(state, language.id);
+function chooseChapter(language, requested, roadmap) {
+  const frontier = roadmap.entries[roadmap.frontierIndex];
+  if (!frontier) throw new Error(`Language '${language.id}' has no chapters.`);
   if (requested) {
     const explicit = resolveChapter(language, requested);
     if (!explicit) throw new Error(`No chapter matches '${requested}'.`);
+    const entry = roadmap.entries.find(({ id }) => id === explicit.id);
+    if (!entry.unlocked) {
+      throw new Error(
+        `${explicit.number}. ${explicit.title} is locked. Current chapter: ${frontier.number}. ${frontier.title}.`,
+      );
+    }
     return explicit;
   }
-  if (saved.selectedChapter) {
-    const selected = resolveChapter(language, saved.selectedChapter);
-    if (selected) return selected;
-    console.warn(
-      `Saved chapter '${saved.selectedChapter}' is invalid; using chapter 1.`,
-    );
-  }
-  const first = language.chapters[0];
-  if (!first) throw new Error(`Language '${language.id}' has no chapters.`);
-  return first;
+  return frontier;
 }
 
 function printResult(result) {
@@ -132,7 +133,7 @@ Add --language <id> to target a track without changing the active language.`);
       }
     }
   }
-  const loaded = await loadState({ root, catalog });
+  const loaded = await loadState({ root, catalog, stateFile });
   if (loaded.warning) console.warn(loaded.warning);
   if (loaded.migrated)
     console.log("Migrated legacy progress to .learn-code/state.json.");
@@ -141,6 +142,46 @@ Add --language <id> to target a track without changing the active language.`);
   if (!language)
     throw new Error(`Unknown language '${languageId}'. Run 'yarn languages'.`);
   const adapter = getAdapter(language.adapter);
+  let navigation;
+  async function getNavigation() {
+    if (!navigation) {
+      const allFingerprints = await fingerprints(language, adapter);
+      const track = trackState(loaded.state, language.id);
+      navigation = {
+        allFingerprints,
+        roadmap: calculateRoadmap(
+          language.chapters,
+          track.completions ?? {},
+          allFingerprints,
+        ),
+      };
+    }
+    return navigation;
+  }
+  async function navigatedChapter(requested, { normalize = true } = {}) {
+    const { roadmap } = await getNavigation();
+    const chapter = chooseChapter(language, requested, roadmap);
+    if (!requested && normalize) {
+      const track = trackState(loaded.state, language.id);
+      if (track.selectedChapter !== chapter.id) {
+        const updated = await transactState({
+          root,
+          catalog,
+          stateFile,
+          mutate: async (state) => {
+            state.tracks[language.id] = {
+              ...trackState(state, language.id),
+              selectedChapter: chapter.id,
+            };
+            return { state };
+          },
+        });
+        loaded.state = updated.state;
+        if (updated.warning) console.warn(updated.warning);
+      }
+    }
+    return chapter;
+  }
 
   if (command === "languages") {
     for (const item of catalog.languages)
@@ -163,6 +204,7 @@ Add --language <id> to target a track without changing the active language.`);
       const updated = await transactState({
         root,
         catalog,
+        stateFile,
         mutate: async (state) => {
           state.activeLanguage = chosen.id;
           return { state };
@@ -188,9 +230,7 @@ Add --language <id> to target a track without changing the active language.`);
     return;
   }
   if (command === "path") {
-    const chapter = chooseChapter(
-      language,
-      loaded.state,
+    const chapter = await navigatedChapter(
       args.find((arg) => !arg.startsWith("--")),
     );
     console.log(
@@ -201,10 +241,11 @@ Add --language <id> to target a track without changing the active language.`);
     return;
   }
   if (command === "chapter" || command === "start") {
-    const chapter = chooseChapter(language, loaded.state, args[0]);
+    const chapter = await navigatedChapter(args[0], { normalize: false });
     const updated = await transactState({
       root,
       catalog,
+      stateFile,
       mutate: async (state) => {
         state.tracks[language.id] = {
           ...trackState(state, language.id),
@@ -234,9 +275,7 @@ Add --language <id> to target a track without changing the active language.`);
     return;
   }
   if (command === "read") {
-    const chapter = chooseChapter(
-      language,
-      loaded.state,
+    const chapter = await navigatedChapter(
       args.find((arg) => !arg.startsWith("--")),
     );
     console.log(`Required reading for ${chapter.number}. ${chapter.title}:`);
@@ -250,12 +289,7 @@ Add --language <id> to target a track without changing the active language.`);
     return;
   }
   if (command === "roadmap") {
-    const track = trackState(loaded.state, language.id);
-    const roadmap = calculateRoadmap(
-      language.chapters,
-      track.completions ?? {},
-      await fingerprints(language, adapter),
-    );
+    const { roadmap } = await getNavigation();
     console.log(
       `${language.name}: ${progressBar(roadmap.validCount, language.chapters.length)} ${roadmap.validCount}/${language.chapters.length}`,
     );
@@ -312,9 +346,7 @@ Add --language <id> to target a track without changing the active language.`);
     return;
   }
   if (["run", "test", "typecheck", "submit", "solution"].includes(command)) {
-    const chapter = chooseChapter(
-      language,
-      loaded.state,
+    const chapter = await navigatedChapter(
       args.find((arg) => !arg.startsWith("--")),
     );
     if (command === "solution") {
@@ -339,6 +371,16 @@ Add --language <id> to target a track without changing the active language.`);
       if (!result.ok) process.exitCode = 1;
       return;
     }
+    if (command === "submit") {
+      const { roadmap } = await getNavigation();
+      const entry = roadmap.entries.find(({ id }) => id === chapter.id);
+      if (!entry.unlocked) {
+        const frontier = roadmap.entries[roadmap.frontierIndex];
+        throw new Error(
+          `${chapter.number}. ${chapter.title} is locked. Current chapter: ${frontier.number}. ${frontier.title}.`,
+        );
+      }
+    }
     const result = assertAdapterResult(
       await adapter.test({
         root,
@@ -352,10 +394,11 @@ Add --language <id> to target a track without changing the active language.`);
       return fail(`${chapter.title}: ${result.phase} failed.`);
     if (command === "submit") {
       const nextChapter = language.chapters[chapter.number];
-      const allFingerprints = await fingerprints(language, adapter);
+      const { allFingerprints } = await getNavigation();
       const updated = await transactState({
         root,
         catalog,
+        stateFile,
         mutate: async (state) => {
           const track = trackState(state, language.id);
           const roadmap = calculateRoadmap(
@@ -414,14 +457,14 @@ Add --language <id> to target a track without changing the active language.`);
         if (!okay) console.error(result.detail);
       } else {
         const target =
-          command === "validate-solutions" ? "solution" : "starter";
+          command === "validate-solutions" ? "solution" : "validation-starter";
         const result = assertAdapterResult(
           await adapter.test({ root, language, chapter, target }),
           command,
         );
         if (result.kind === "infrastructure") infrastructure += 1;
         okay = target === "solution" ? result.ok : false;
-        if (target === "starter") {
+        if (target === "validation-starter") {
           okay =
             result.kind === "learner" &&
             result.phase === chapter.expectedFailure.phase &&
@@ -430,7 +473,7 @@ Add --language <id> to target a track without changing the active language.`);
         if (!okay)
           console.error(
             `${chapter.id}: got ${result.kind}/${result.phase}/${result.category}; expected ${
-              target === "starter"
+              target === "validation-starter"
                 ? `learner/${chapter.expectedFailure.phase}/${chapter.expectedFailure.category}`
                 : "success"
             }\n${result.detail}`,

@@ -209,75 +209,75 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/02-variables-and-types@workspace:tracks/typescript/sections/javascript-foundations/02-values-variables-and-primitives":
+"@learning-ezy-code/02-variables-and-types@workspace:tracks/typescript/sections/javascript-foundations/04-values-primitives-and-literals":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/02-variables-and-types@workspace:tracks/typescript/sections/javascript-foundations/02-values-variables-and-primitives"
+  resolution: "@learning-ezy-code/02-variables-and-types@workspace:tracks/typescript/sections/javascript-foundations/04-values-primitives-and-literals"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/03-functions@workspace:tracks/typescript/sections/javascript-foundations/06-functions-scope-and-returns":
+"@learning-ezy-code/03-functions@workspace:tracks/typescript/sections/javascript-foundations/15-scope-and-default-parameters":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/03-functions@workspace:tracks/typescript/sections/javascript-foundations/06-functions-scope-and-returns"
+  resolution: "@learning-ezy-code/03-functions@workspace:tracks/typescript/sections/javascript-foundations/15-scope-and-default-parameters"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/04-loops@workspace:tracks/typescript/sections/javascript-foundations/08-loops-and-iteration":
+"@learning-ezy-code/04-loops@workspace:tracks/typescript/sections/javascript-foundations/20-loops-and-iteration":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/04-loops@workspace:tracks/typescript/sections/javascript-foundations/08-loops-and-iteration"
+  resolution: "@learning-ezy-code/04-loops@workspace:tracks/typescript/sections/javascript-foundations/20-loops-and-iteration"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/05-arrays@workspace:tracks/typescript/sections/javascript-foundations/07-arrays-and-array-operations":
+"@learning-ezy-code/05-arrays@workspace:tracks/typescript/sections/javascript-foundations/19-arrays":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/05-arrays@workspace:tracks/typescript/sections/javascript-foundations/07-arrays-and-array-operations"
+  resolution: "@learning-ezy-code/05-arrays@workspace:tracks/typescript/sections/javascript-foundations/19-arrays"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/06-operators@workspace:tracks/typescript/sections/javascript-foundations/03-operators-and-expressions":
+"@learning-ezy-code/06-operators@workspace:tracks/typescript/sections/javascript-foundations/08-arithmetic-and-precedence":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/06-operators@workspace:tracks/typescript/sections/javascript-foundations/03-operators-and-expressions"
+  resolution: "@learning-ezy-code/06-operators@workspace:tracks/typescript/sections/javascript-foundations/08-arithmetic-and-precedence"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/07-truthy-and-falsy@workspace:tracks/typescript/sections/javascript-foundations/05-conditionals-comparisons-and-truthiness":
+"@learning-ezy-code/07-truthy-and-falsy@workspace:tracks/typescript/sections/javascript-foundations/13-conditionals-and-truthiness":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/07-truthy-and-falsy@workspace:tracks/typescript/sections/javascript-foundations/05-conditionals-comparisons-and-truthiness"
+  resolution: "@learning-ezy-code/07-truthy-and-falsy@workspace:tracks/typescript/sections/javascript-foundations/13-conditionals-and-truthiness"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/08-classes@workspace:tracks/typescript/sections/typescript-foundations/01-classes":
+"@learning-ezy-code/08-classes@workspace:tracks/typescript/sections/typescript-foundations/14-classes":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/08-classes@workspace:tracks/typescript/sections/typescript-foundations/01-classes"
+  resolution: "@learning-ezy-code/08-classes@workspace:tracks/typescript/sections/typescript-foundations/14-classes"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/09-interfaces@workspace:tracks/typescript/sections/typescript-foundations/02-interfaces":
+"@learning-ezy-code/09-interfaces@workspace:tracks/typescript/sections/typescript-foundations/06-interfaces":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/09-interfaces@workspace:tracks/typescript/sections/typescript-foundations/02-interfaces"
+  resolution: "@learning-ezy-code/09-interfaces@workspace:tracks/typescript/sections/typescript-foundations/06-interfaces"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/10-modules@workspace:tracks/typescript/sections/javascript-foundations/11-modules-and-errors":
+"@learning-ezy-code/10-modules@workspace:tracks/typescript/sections/javascript-foundations/26-modules":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/10-modules@workspace:tracks/typescript/sections/javascript-foundations/11-modules-and-errors"
+  resolution: "@learning-ezy-code/10-modules@workspace:tracks/typescript/sections/javascript-foundations/26-modules"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/11-type-assertions@workspace:tracks/typescript/sections/typescript-foundations/03-type-assertions":
+"@learning-ezy-code/11-type-assertions@workspace:tracks/typescript/sections/typescript-foundations/09-type-assertions":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/11-type-assertions@workspace:tracks/typescript/sections/typescript-foundations/03-type-assertions"
+  resolution: "@learning-ezy-code/11-type-assertions@workspace:tracks/typescript/sections/typescript-foundations/09-type-assertions"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-01-keyof-and-typeof@workspace:tracks/typescript/sections/typescript-foundations/04-keyof-and-typeof":
+"@learning-ezy-code/advanced-01-keyof-and-typeof@workspace:tracks/typescript/sections/typescript-foundations/10-keyof-and-typeof":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-01-keyof-and-typeof@workspace:tracks/typescript/sections/typescript-foundations/04-keyof-and-typeof"
+  resolution: "@learning-ezy-code/advanced-01-keyof-and-typeof@workspace:tracks/typescript/sections/typescript-foundations/10-keyof-and-typeof"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-02-type-unions-and-intersections@workspace:tracks/typescript/sections/typescript-foundations/05-type-unions-and-intersections":
+"@learning-ezy-code/advanced-02-type-unions-and-intersections@workspace:tracks/typescript/sections/typescript-foundations/03-unions-nullability-and-intersections":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-02-type-unions-and-intersections@workspace:tracks/typescript/sections/typescript-foundations/05-type-unions-and-intersections"
+  resolution: "@learning-ezy-code/advanced-02-type-unions-and-intersections@workspace:tracks/typescript/sections/typescript-foundations/03-unions-nullability-and-intersections"
   languageName: unknown
   linkType: soft
 
@@ -287,27 +287,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-04-enum-type@workspace:tracks/typescript/sections/typescript-foundations/06-enum-type":
+"@learning-ezy-code/advanced-04-enum-type@workspace:tracks/typescript/sections/typescript-foundations/13-enum-type":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-04-enum-type@workspace:tracks/typescript/sections/typescript-foundations/06-enum-type"
+  resolution: "@learning-ezy-code/advanced-04-enum-type@workspace:tracks/typescript/sections/typescript-foundations/13-enum-type"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-05-generics@workspace:tracks/typescript/sections/typescript-foundations/07-generics":
+"@learning-ezy-code/advanced-05-generics@workspace:tracks/typescript/sections/typescript-foundations/11-generics":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-05-generics@workspace:tracks/typescript/sections/typescript-foundations/07-generics"
+  resolution: "@learning-ezy-code/advanced-05-generics@workspace:tracks/typescript/sections/typescript-foundations/11-generics"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-06-index-types@workspace:tracks/typescript/sections/typescript-foundations/08-index-types":
+"@learning-ezy-code/advanced-06-index-types@workspace:tracks/typescript/sections/typescript-foundations/12-index-types":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-06-index-types@workspace:tracks/typescript/sections/typescript-foundations/08-index-types"
+  resolution: "@learning-ezy-code/advanced-06-index-types@workspace:tracks/typescript/sections/typescript-foundations/12-index-types"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-07-literal-types@workspace:tracks/typescript/sections/typescript-foundations/09-literal-types":
+"@learning-ezy-code/advanced-07-literal-types@workspace:tracks/typescript/sections/typescript-foundations/07-literal-types":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-07-literal-types@workspace:tracks/typescript/sections/typescript-foundations/09-literal-types"
+  resolution: "@learning-ezy-code/advanced-07-literal-types@workspace:tracks/typescript/sections/typescript-foundations/07-literal-types"
   languageName: unknown
   linkType: soft
 
@@ -341,21 +341,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-13-tuple-types@workspace:tracks/typescript/sections/typescript-foundations/10-tuple-types":
+"@learning-ezy-code/advanced-13-tuple-types@workspace:tracks/typescript/sections/typescript-foundations/08-tuple-types":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-13-tuple-types@workspace:tracks/typescript/sections/typescript-foundations/10-tuple-types"
+  resolution: "@learning-ezy-code/advanced-13-tuple-types@workspace:tracks/typescript/sections/typescript-foundations/08-tuple-types"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-14-type-aliases@workspace:tracks/typescript/sections/typescript-foundations/11-type-aliases":
+"@learning-ezy-code/advanced-14-type-aliases@workspace:tracks/typescript/sections/typescript-foundations/05-type-aliases":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-14-type-aliases@workspace:tracks/typescript/sections/typescript-foundations/11-type-aliases"
+  resolution: "@learning-ezy-code/advanced-14-type-aliases@workspace:tracks/typescript/sections/typescript-foundations/05-type-aliases"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-15-type-guards@workspace:tracks/typescript/sections/typescript-foundations/12-type-guards":
+"@learning-ezy-code/advanced-15-type-guards@workspace:tracks/typescript/sections/typescript-foundations/04-narrowing-and-type-guards":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-15-type-guards@workspace:tracks/typescript/sections/typescript-foundations/12-type-guards"
+  resolution: "@learning-ezy-code/advanced-15-type-guards@workspace:tracks/typescript/sections/typescript-foundations/04-narrowing-and-type-guards"
   languageName: unknown
   linkType: soft
 
@@ -371,9 +371,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/advanced-18-abstract-classes@workspace:tracks/typescript/sections/typescript-foundations/13-abstract-classes":
+"@learning-ezy-code/advanced-18-abstract-classes@workspace:tracks/typescript/sections/typescript-foundations/16-abstract-classes":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/advanced-18-abstract-classes@workspace:tracks/typescript/sections/typescript-foundations/13-abstract-classes"
+  resolution: "@learning-ezy-code/advanced-18-abstract-classes@workspace:tracks/typescript/sections/typescript-foundations/16-abstract-classes"
   languageName: unknown
   linkType: soft
 
@@ -389,21 +389,135 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/typescript-map-and-set@workspace:tracks/typescript/sections/javascript-foundations/10-map-and-set":
+"@learning-ezy-code/js-array-transformations@workspace:tracks/typescript/sections/javascript-foundations/21-array-transformations":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/typescript-map-and-set@workspace:tracks/typescript/sections/javascript-foundations/10-map-and-set"
+  resolution: "@learning-ezy-code/js-array-transformations@workspace:tracks/typescript/sections/javascript-foundations/21-array-transformations"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/typescript-objects-properties-and-destructuring@workspace:tracks/typescript/sections/javascript-foundations/09-objects-properties-and-destructuring":
+"@learning-ezy-code/js-assignment@workspace:tracks/typescript/sections/javascript-foundations/06-assignment-and-reassignment":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/typescript-objects-properties-and-destructuring@workspace:tracks/typescript/sections/javascript-foundations/09-objects-properties-and-destructuring"
+  resolution: "@learning-ezy-code/js-assignment@workspace:tracks/typescript/sections/javascript-foundations/06-assignment-and-reassignment"
   languageName: unknown
   linkType: soft
 
-"@learning-ezy-code/typescript-strings-and-template-literals@workspace:tracks/typescript/sections/javascript-foundations/04-strings-and-template-literals":
+"@learning-ezy-code/js-booleans@workspace:tracks/typescript/sections/javascript-foundations/11-booleans-and-comparisons":
   version: 0.0.0-use.local
-  resolution: "@learning-ezy-code/typescript-strings-and-template-literals@workspace:tracks/typescript/sections/javascript-foundations/04-strings-and-template-literals"
+  resolution: "@learning-ezy-code/js-booleans@workspace:tracks/typescript/sections/javascript-foundations/11-booleans-and-comparisons"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-callbacks@workspace:tracks/typescript/sections/javascript-foundations/17-callbacks":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-callbacks@workspace:tracks/typescript/sections/javascript-foundations/17-callbacks"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-closures@workspace:tracks/typescript/sections/javascript-foundations/18-closures":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-closures@workspace:tracks/typescript/sections/javascript-foundations/18-closures"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-declarations@workspace:tracks/typescript/sections/javascript-foundations/05-declarations-and-initialization":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-declarations@workspace:tracks/typescript/sections/javascript-foundations/05-declarations-and-initialization"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-errors@workspace:tracks/typescript/sections/javascript-foundations/27-errors-and-exceptions":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-errors@workspace:tracks/typescript/sections/javascript-foundations/27-errors-and-exceptions"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-expressions@workspace:tracks/typescript/sections/javascript-foundations/07-expressions-and-statements":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-expressions@workspace:tracks/typescript/sections/javascript-foundations/07-expressions-and-statements"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-function-basics@workspace:tracks/typescript/sections/javascript-foundations/14-function-basics":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-function-basics@workspace:tracks/typescript/sections/javascript-foundations/14-function-basics"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-function-values@workspace:tracks/typescript/sections/javascript-foundations/16-function-values-and-arrows":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-function-values@workspace:tracks/typescript/sections/javascript-foundations/16-function-values-and-arrows"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-logical-nullish@workspace:tracks/typescript/sections/javascript-foundations/12-logical-operators-and-nullish-values":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-logical-nullish@workspace:tracks/typescript/sections/javascript-foundations/12-logical-operators-and-nullish-values"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-object-basics@workspace:tracks/typescript/sections/javascript-foundations/22-object-basics":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-object-basics@workspace:tracks/typescript/sections/javascript-foundations/22-object-basics"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-runtime-checker@workspace:tracks/typescript/sections/javascript-foundations/02-runtime-and-checker":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-runtime-checker@workspace:tracks/typescript/sections/javascript-foundations/02-runtime-and-checker"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-set@workspace:tracks/typescript/sections/javascript-foundations/24-set":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-set@workspace:tracks/typescript/sections/javascript-foundations/24-set"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-string-basics@workspace:tracks/typescript/sections/javascript-foundations/09-string-basics":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-string-basics@workspace:tracks/typescript/sections/javascript-foundations/09-string-basics"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/js-tests-scaffolding@workspace:tracks/typescript/sections/javascript-foundations/03-reading-tests-and-scaffolding":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/js-tests-scaffolding@workspace:tracks/typescript/sections/javascript-foundations/03-reading-tests-and-scaffolding"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/ts-annotations-inference@workspace:tracks/typescript/sections/typescript-foundations/01-annotations-and-inference":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/ts-annotations-inference@workspace:tracks/typescript/sections/typescript-foundations/01-annotations-and-inference"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/ts-composite-types@workspace:tracks/typescript/sections/typescript-foundations/02-array-object-and-function-types":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/ts-composite-types@workspace:tracks/typescript/sections/typescript-foundations/02-array-object-and-function-types"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/ts-inheritance@workspace:tracks/typescript/sections/typescript-foundations/15-inheritance":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/ts-inheritance@workspace:tracks/typescript/sections/typescript-foundations/15-inheritance"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/typescript-map-and-set@workspace:tracks/typescript/sections/javascript-foundations/25-map-and-frequency-tables":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/typescript-map-and-set@workspace:tracks/typescript/sections/javascript-foundations/25-map-and-frequency-tables"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/typescript-objects-properties-and-destructuring@workspace:tracks/typescript/sections/javascript-foundations/23-destructuring-and-spread":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/typescript-objects-properties-and-destructuring@workspace:tracks/typescript/sections/javascript-foundations/23-destructuring-and-spread"
+  languageName: unknown
+  linkType: soft
+
+"@learning-ezy-code/typescript-strings-and-template-literals@workspace:tracks/typescript/sections/javascript-foundations/10-template-literals":
+  version: 0.0.0-use.local
+  resolution: "@learning-ezy-code/typescript-strings-and-template-literals@workspace:tracks/typescript/sections/javascript-foundations/10-template-literals"
   languageName: unknown
   linkType: soft
 

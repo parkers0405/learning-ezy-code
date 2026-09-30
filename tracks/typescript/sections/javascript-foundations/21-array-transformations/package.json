@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-array-transformations",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run array-transformations --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test array-transformations --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck array-transformations --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit array-transformations --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution array-transformations --language typescript"
+  }
+}

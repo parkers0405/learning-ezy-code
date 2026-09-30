@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-object-basics",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run object-basics --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test object-basics --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck object-basics --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit object-basics --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution object-basics --language typescript"
+  }
+}

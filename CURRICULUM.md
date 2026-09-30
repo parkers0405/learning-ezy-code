@@ -1,17 +1,17 @@
 # Curriculum
 
-The authoritative machine-readable order is `tracks/typescript/track.json`; the canonical prose order is the [TypeScript textbook index](tracks/typescript/textbook/README.md). Run `ezy tracks`, `ezy use typescript`, and `ezy status` to navigate all 32 exercises from the manifest.
+The authoritative order is `tracks/typescript/track.json`; the [textbook index](tracks/typescript/textbook/README.md) mirrors it exactly. The 51 exercises form one prerequisite-safe sequence.
 
-## Part 0 — JavaScript Foundations (11)
+## Part 0 — JavaScript Foundations (27)
 
-Runtime/compile-time introduction; values, variables, and primitives; operators and expressions; strings and template literals; conditionals, comparisons, and truthiness; functions, defaults, scope, and returns; arrays; loops; objects and destructuring; Map and Set; modules and basic error handling.
+Orientation; runtime/checker diagnostics; reading supplied tests; values; declarations; assignment; expressions; arithmetic; string basics; templates; booleans; logical/nullish operators; conditionals; function declarations; scope/defaults; function values; callbacks; closures; arrays; loops; array transformations; objects; destructuring/spread; Set; Map; modules; errors.
 
-## Part 1 — TypeScript Foundations (13)
+## Part 1 — TypeScript Foundations (16)
 
-Classes; interfaces; type assertions; `keyof` and `typeof`; unions and intersections; enums; generics; index types; literal types; tuples; type aliases; type guards; abstract classes.
+Annotations/inference; array/object/function types; unions/nullability/intersections; narrowing/type guards; aliases; interfaces; literal types; tuples; assertions; `keyof`/`typeof`; generics; index types; enums; basic classes; inheritance; abstract classes.
 
 ## Part 2 — Advanced TypeScript (8)
 
 Conditional types; discriminated unions; mapped types; mixins; namespaces; readonly types; decorators; utility types.
 
-The 29 migrated learn-ts topics remain represented. Exactly three topics are new: strings/template literals, objects/destructuring, and Map/Set. Existing foundation topics were enhanced and repositioned rather than duplicated.
+All 29 migrated learn-ts topics retain their stable IDs and unique `legacySlug`. Twenty-two chapters are original prerequisite bridges or focused splits. See `SOURCE_MANIFEST.md`.

@@ -1,8 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 import { LoggedActivatable, Logger } from "@exercise";
 
+// @ts-expect-error The mixed-in log method cannot accept a numeric callback contract.
+const invalidLog: (message: number) => void = new LoggedActivatable().log;
+void invalidLog;
+
 describe("LoggedActivatable mixin", () => {
-  it("copies the Logger method descriptor onto the target prototype", () => {
+  it("exposes the Logger method function without Logger inheritance", () => {
     const mixedLog = Object.getOwnPropertyDescriptor(
       LoggedActivatable.prototype,
       "log",

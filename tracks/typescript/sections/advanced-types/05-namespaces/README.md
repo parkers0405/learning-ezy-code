@@ -1,17 +1,15 @@
 # Namespaces
 
-**Prerequisites:** Complete preceding roadmap entries. **Required reading:** [Namespaces](../../../textbook/advanced-types/05-namespaces.md)
+**Required reading:** [Namespaces](../../../textbook/advanced-types/05-namespaces.md)
 
-Namespaces group declarations under one name. Members must be exported to be visible outside. They predate standard JavaScript modules and remain useful mainly for ambient declarations and non-module code; prefer ES modules for new applications.
+## Behavioral contract
 
-## Exercise
+Export namespace `Geometry` with numeric `areaOfRectangle(width, height)` and `areaOfCircle(radius)` functions. They return the tested rectangle and circle areas, including zero dimensions, and reject non-number dimensions.
 
-Complete rectangle and circle area functions inside `Geometry`.
+## Practice instruction
 
-### Test contract
+Keep both functions exported inside the supplied namespace and implement the formulas from their parameters. Do not move them to separate ES modules in this exercise.
 
-Export namespace `Geometry` with both area functions. Tests cover each shape and zero dimensions.
+## Attribution
 
 > Adapted from upstream `Namespaces.md`; see the root `NOTICE`.
-
-Run `corepack yarn test`, `corepack yarn typecheck`, `corepack yarn submit`, or `corepack yarn solution` here.

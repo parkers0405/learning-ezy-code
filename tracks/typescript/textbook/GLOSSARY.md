@@ -1,0 +1,31 @@
+# Track Glossary
+
+Each term links to the chapter that first teaches it.
+
+- **Editor, terminal, current directory, repository, track, chapter:** [Chapter 1](javascript-foundations/01-introduction.md)
+- **Checker, runtime, compile failure, assertion failure, syntax failure:** [Chapter 2](javascript-foundations/02-runtime-and-checker.md)
+- **Import, test, matcher, `@exercise`:** [Chapter 3](javascript-foundations/03-reading-tests-and-scaffolding.md)
+- **Value, primitive, literal:** [Chapter 4](javascript-foundations/04-values-primitives-and-literals.md)
+- **Identifier, declaration, initialization, binding, `const`, `let`:** [Chapter 5](javascript-foundations/05-declarations-and-initialization.md)
+- **Assignment, reassignment:** [Chapter 6](javascript-foundations/06-assignment-and-reassignment.md)
+- **Expression, statement:** [Chapter 7](javascript-foundations/07-expressions-and-statements.md)
+- **Operator, operand, precedence:** [Chapter 8](javascript-foundations/08-arithmetic-and-precedence.md)
+- **Property, method, concatenation:** [Chapter 9](javascript-foundations/09-string-basics.md)
+- **Template literal, interpolation:** [Chapter 10](javascript-foundations/10-template-literals.md)
+- **Boolean, comparison:** [Chapter 11](javascript-foundations/11-booleans-and-comparisons.md)
+- **Nullish, logical operator:** [Chapter 12](javascript-foundations/12-logical-and-nullish.md)
+- **Conditional, branch, truthy, falsy:** [Chapter 13](javascript-foundations/13-conditionals-and-truthiness.md)
+- **Function, parameter, argument, call, return:** [Chapter 14](javascript-foundations/14-function-basics.md)
+- **Scope, default parameter:** [Chapter 15](javascript-foundations/15-scope-and-default-parameters.md)
+- **Function value, arrow function:** [Chapter 16](javascript-foundations/16-function-values-and-arrows.md)
+- **Callback:** [Chapter 17](javascript-foundations/17-callbacks.md)
+- **Closure:** [Chapter 18](javascript-foundations/18-closures.md)
+- **Array, index:** [Chapter 19](javascript-foundations/19-arrays.md)
+- **Loop, iteration:** [Chapter 20](javascript-foundations/20-loops-and-iteration.md)
+- **Object, property, identity, mutation:** [Chapter 22](javascript-foundations/22-object-basics.md)
+- **Set:** [Chapter 24](javascript-foundations/24-set.md)
+- **Map, frequency table:** [Chapter 25](javascript-foundations/25-map-and-frequency-tables.md)
+- **Module, file scope, export:** [Chapter 26](javascript-foundations/26-modules.md)
+- **Exception, `throw`, `catch`, `finally`:** [Chapter 27](javascript-foundations/27-errors.md)
+- **Annotation, inference:** [TypeScript Foundations 1](typescript-foundations/01-annotations-and-inference.md)
+- **Union, narrowing, alias, interface, generic, class, inheritance, abstract class:** first taught by their ordered [TypeScript Foundations chapters](README.md#part-1--typescript-foundations-16).

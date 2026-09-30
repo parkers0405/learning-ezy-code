@@ -1,12 +1,12 @@
 # Discriminated Unions
 
-## Objectives
+## Goal
 
 - Design variants with a shared literal tag.
 - Narrow variants through control flow.
 - enforce exhaustiveness with `never`.
 
-## Mental model and syntax
+## Step-by-step mental model and syntax
 
 A discriminated union is a union of object types that share a property with distinct literal values. The property is real runtime data and also evidence for static narrowing.
 
@@ -51,7 +51,19 @@ Variants model expression trees, tokens, traversal events, and state machines. E
 2. Why should variant fields be required?
 3. How does `never` reveal a missing case?
 
-## References
+## Prerequisite recap
+
+Literal-valued properties can distinguish members of a union, and narrowing follows runtime equality checks.
+
+## Terms introduced
+
+A **discriminated union** gives every member one shared property with distinct literal values. An **exhaustive check** makes the checker report a newly added case that code has not handled.
+
+## Exercise preparation
+
+Read the local exercise README and visible named tests, then change only learner-owned source.
+
+## Authoritative references
 
 - [TypeScript Handbook: Discriminated Unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions)
 - [TypeScript Handbook: Exhaustiveness Checking](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking)

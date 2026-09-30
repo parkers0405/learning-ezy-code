@@ -1,5 +1,15 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, expectTypeOf, it, vi } from "vitest";
 import { Calculator, log } from "@exercise";
+
+// @ts-expect-error The decorated method retains numeric parameters.
+const invalidSum = new Calculator().add("two", 3);
+void invalidSum;
+// @ts-expect-error The second add parameter is also numeric.
+const invalidSecondAddend = new Calculator().add(2, "three");
+void invalidSecondAddend;
+expectTypeOf(Calculator.prototype.add).toEqualTypeOf<
+  (a: number, b: number) => number
+>();
 
 describe("log method decorator", () => {
   it("logs the decorated method name", () => {

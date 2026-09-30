@@ -1,5 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { calculateArea } from "@exercise";
+import type { Circle, Shape, Square } from "@exercise";
+
+const typedCircle: Circle = { kind: "circle", radius: 1 };
+const typedSquare: Square = { kind: "square", sideLength: 1 };
+const typedShapes: Shape[] = [typedCircle, typedSquare];
+void typedShapes;
+
+// @ts-expect-error The square branch requires sideLength, not radius.
+const invalidShape = calculateArea({ kind: "square", radius: 2 });
+void invalidShape;
 
 describe("calculateArea", () => {
   it("calculates a circle", () =>

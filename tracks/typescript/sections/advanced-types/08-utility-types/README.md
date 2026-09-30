@@ -1,17 +1,15 @@
-# Utility Types
+# Utility types
 
-**Prerequisites:** Complete preceding roadmap entries. **Required reading:** [Utility Types](../../../textbook/advanced-types/08-utility-types.md)
+**Required reading:** [Utility Types](../../../textbook/advanced-types/08-utility-types.md)
 
-Built-in utilities transform existing types. `Partial<T>` makes properties optional; `Required<T>` makes them mandatory; `Readonly<T>` prevents assignment; `Pick`, `Omit`, and `Record` construct object shapes.
+## Behavioral contract
 
-## Exercise
+`CompletePoint` has required numeric `x` and `y` properties; values missing either property and values with wrong property types are rejected.
 
-Define `CompletePoint` with `Required<PartialPoint>` so neither coordinate may be omitted.
+## Practice instruction
 
-### Test contract
+Define `CompletePoint` as `Required<PartialPoint>` so the built-in utility reverses the optional properties. Do not manually restate `Point`.
 
-Export `CompletePoint = Required<PartialPoint>`. Compile-time tests require both coordinates and prove each missing-property form is rejected.
+## Attribution
 
 > Adapted from upstream `Utility Types.md`; stale `Utility Types2.md` is excluded. See `CORRECTIONS.md`.
-
-Run `corepack yarn test`, `corepack yarn typecheck`, `corepack yarn submit`, or `corepack yarn solution` here.

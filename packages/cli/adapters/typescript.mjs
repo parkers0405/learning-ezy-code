@@ -85,6 +85,8 @@ function isToolLaunchFailure(result, tool) {
 
 function targetFile(chapter, target) {
   if (target === "starter") return chapter.adapterData.starter;
+  if (target === "validation-starter")
+    return chapter.adapterData.validationStarter ?? chapter.adapterData.starter;
   if (target === "solution") return chapter.adapterData.solution;
   throw new Error(`Unknown TypeScript exercise target: ${target}`);
 }
@@ -147,6 +149,13 @@ export function createTypeScriptAdapter({ execute = runProcess } = {}) {
           "TypeScript test-runner config",
         ),
       };
+      if (chapter.validationStarter) {
+        chapter.adapterData.validationStarter = await canonicalFile(
+          path.join(chapter.absolutePath, chapter.validationStarter),
+          chapter.absolutePath,
+          `${chapter.id} validation starter`,
+        );
+      }
       try {
         chapter.adapterData.tools = {
           tsc: await canonicalFile(

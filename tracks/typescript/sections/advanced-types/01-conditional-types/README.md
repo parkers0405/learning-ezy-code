@@ -1,21 +1,15 @@
-# Conditional Types
+# Conditional types
 
-**Prerequisites:** Complete TypeScript Foundations. **Required reading:** [Conditional Types](../../../textbook/advanced-types/01-conditional-types.md)
+**Required reading:** [Conditional Types](../../../textbook/advanced-types/01-conditional-types.md)
 
-Conditional types choose a type using `T extends U ? X : Y`. With a naked generic parameter they distribute over unions. The `infer` keyword can capture part of a matched type.
+## Behavioral contract
 
-```ts
-type ElementOf<T> = T extends Array<infer Item> ? Item : T;
-```
+`IsString<string>` is exactly `"Yes"`, `IsString<number>` is exactly `"No"`, and `IsString<string | boolean>` distributes to `"Yes" | "No"`; `"Maybe"` is rejected.
 
-## Exercise
+## Practice instruction
 
-Define `IsString<T>` so it evaluates to the literal type `"Yes"` for strings and `"No"` otherwise. The compile-only assertions are the test.
+Define `IsString<T>` with the conditional type form `T extends string ? "Yes" : "No"`. This is a compile-time-only exercise with no runtime implementation.
 
-### Test contract
-
-Export type `IsString<T>`. Compile-time assertions cover strings, non-strings, and distributive behavior over a union; there is no runtime substitute.
+## Attribution
 
 > Adapted from upstream `Conditional Types.md`; see the root `NOTICE`.
-
-Run `corepack yarn test`, `corepack yarn typecheck`, `corepack yarn submit`, or `corepack yarn solution` here.

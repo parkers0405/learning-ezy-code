@@ -1,0 +1,13 @@
+{
+  "name": "@learning-ezy-code/js-runtime-checker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node ../../../../../packages/cli/cli.mjs run runtime-and-checker --language typescript",
+    "test": "node ../../../../../packages/cli/cli.mjs test runtime-and-checker --language typescript",
+    "typecheck": "node ../../../../../packages/cli/cli.mjs typecheck runtime-and-checker --language typescript",
+    "submit": "node ../../../../../packages/cli/cli.mjs submit runtime-and-checker --language typescript",
+    "solution": "node ../../../../../packages/cli/cli.mjs solution runtime-and-checker --language typescript"
+  }
+}
